@@ -27,7 +27,7 @@ const Navbar: React.FC = () => {
   }, []);
 
   return (
-    <nav className="fixed top-6 left-6 right-6 bg-white text-[#252525] py-0.5 px-5 flex gap-20 items-center rounded-full shadow-md z-50">
+    <nav className="fixed top-6 left-16 right-16 bg-white text-[#252525] py-0.5 px-5 flex gap-20 items-center rounded-full shadow-md z-50">
       <Image src={'/duriLogo.png'} alt="Duri Logo" width={120} height={45} />
       <div className='flex justify-between items-center w-screen'>
         <Link href="#home" scroll={false}>
