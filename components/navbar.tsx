@@ -27,8 +27,8 @@ const Navbar: React.FC = () => {
   }, []);
 
   return (
-    <nav className="fixed top-10 left-10 right-10 bg-white text-[#252525] py-2 px-6 flex gap-20 items-center rounded-full shadow-md z-50">
-      <Image src={'/duriLogo.png'} alt="Duri Logo" width={154} height={52} />
+    <nav className="fixed top-6 left-6 right-6 bg-white text-[#252525] py-0.5 px-5 flex gap-20 items-center rounded-full shadow-md z-50">
+      <Image src={'/duriLogo.png'} alt="Duri Logo" width={120} height={45} />
       <div className='flex justify-between items-center w-screen'>
         <Link href="#home" scroll={false}>
           <p className={activeSection === 'home' ? 'text-blue-500' : ''}>
@@ -55,7 +55,7 @@ const Navbar: React.FC = () => {
             Consultoria Tributária
           </p>
         </Link>
-        <button className="bg-duri-light rounded-full p-3 px-8 font-bold text-white hover:bg-duri-dark">
+        <button className="bg-duri-light rounded-full p-1 px-8 font-bold text-white hover:bg-duri-dark">
           Entre em Contato
         </button>
       </div>
