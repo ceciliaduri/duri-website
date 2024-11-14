@@ -7,7 +7,7 @@ export default function Home() {
   return (
     <div className="bg-[#F9F9F9] h-screen w-screen">
       <Navbar />
-      <div className="bg-[#F9F9F9] flex flex-col gap-24">
+      <div className="bg-[#F9F9F9] flex flex-col">
         <HeroSection />
         <section id="quem-somos"><AboutSection /></section>
         <section id="servicos">...</section>

@@ -27,33 +27,39 @@ const Navbar: React.FC = () => {
   }, []);
 
   return (
-    <nav className="fixed top-6 left-6 right-6 bg-white p-0.5 px-2 flex justify-between items-center rounded-full shadow-md z-50">
+    <nav className="fixed top-10 left-10 right-10 bg-white text-[#252525] py-2 px-6 flex gap-20 items-center rounded-full shadow-md z-50">
       <Image src={'/duriLogo.png'} alt="Duri Logo" width={154} height={52} />
-      <div className="flex gap-12 text-[#252525]">
+      <div className='flex justify-between items-center w-screen'>
+        <Link href="#home" scroll={false}>
+          <p className={activeSection === 'home' ? 'text-blue-500' : ''}>
+            Home
+          </p>
+        </Link>
         <Link href="#quem-somos" scroll={false}>
-          <span className={activeSection === 'quem-somos' ? 'text-blue-500' : ''}>
+          <p className={activeSection === 'quem-somos' ? 'text-blue-500' : ''}>
             Quem Somos
-          </span>
+          </p>
         </Link>
         <Link href="#servicos" scroll={false}>
-          <span className={activeSection === 'servicos' ? 'text-blue-500' : ''}>
+          <p className={activeSection === 'servicos' ? 'text-blue-500' : ''}>
             Serviços
-          </span>
+          </p>
         </Link>
         <Link href="#beneficios-fiscais" scroll={false}>
-          <span className={activeSection === 'beneficios-fiscais' ? 'text-blue-500' : ''}>
+          <p className={activeSection === 'beneficios-fiscais' ? 'text-blue-500' : ''}>
             Benefícios Fiscais
-          </span>
+          </p>
         </Link>
         <Link href="#consultoria-tributaria" scroll={false}>
-          <span className={activeSection === 'consultoria-tributaria' ? 'text-blue-500' : ''}>
+          <p className={activeSection === 'consultoria-tributaria' ? 'text-blue-500' : ''}>
             Consultoria Tributária
-          </span>
+          </p>
         </Link>
+        <button className="bg-duri-light rounded-full p-3 px-8 font-bold text-white hover:bg-duri-dark">
+          Entre em Contato
+        </button>
       </div>
-      <button className="bg-duri-light rounded-full p-2 px-8 font-bold text-white hover:bg-duri-dark">
-        Entre em Contato
-      </button>
+
     </nav>
   );
 };

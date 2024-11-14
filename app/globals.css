@@ -2,25 +2,31 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  font-family: var(--font-poppins);
-}
-
-
-h1 {
-  @apply text-5xl font-bold; 
-  font-family: var(--font-poppins);
+h1,
+h2,
+h3 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: bold;
 }
 
 h2 {
-  @apply text-2xl font-light italic;
-  font-family: var(--font-poppins);
+  font-style: italic;
+  font-weight: 300; /* Poppins Light */
+  font-size: 32px;
 }
 
 p {
-  @apply text-base font-normal;
-  font-family: var(--font-poppins);
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500; /* Poppins Regular */
+  font-size: 20px; /* Ajuste conforme necessário */
 }
+
+button {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700; /* Poppins Bold */
+  font-size: 20px; /* Ajuste conforme necessário */
+}
+
 
 
 @layer base {

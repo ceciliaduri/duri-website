@@ -12,9 +12,9 @@ const HeroSection: React.FC = () => {
                 priority
             />
             <div className="absolute inset-0 bg-[#5C0508A6] bg-opacity-65"></div>
-            <div className="absolute inset-0 flex flex-col items-start justify-center text-white text-left pl-40 px-4 w-1/2">
-                <h1 className="text-4xl font-bold">Excelência e Confiabilidade em Comercio Exterior</h1>
-                <p className="text-xl mt-2">Soluções completas da origem ao destino</p>
+            <div className="absolute inset-0 flex flex-col items-start justify-center text-white text-left pl-40 px-4 w-2/3">
+                <h1 className="text-6xl">Excelência e Confiabilidade em Comercio Exterior</h1>
+                <h2 className="text-4xl mt-2">Soluções completas da origem ao destino</h2>
             </div>
         </div>
     );
