@@ -1,12 +1,15 @@
-import Footer from "./components/footer";
-import Navbar from "./components/navbar";
+import HeroSection from "@/components/sections/hero";
+import Footer from "../components/footer";
+import Navbar from "../components/navbar";
+import AboutSection from "@/components/sections/about";
 
 export default function Home() {
   return (
     <div className="bg-[#F9F9F9] h-screen w-screen">
       <Navbar />
-      <div className="pt-16">
-        <section id="quem-somos">...</section>
+      <div className="bg-[#F9F9F9] flex flex-col gap-24">
+        <HeroSection />
+        <section id="quem-somos"><AboutSection /></section>
         <section id="servicos">...</section>
         <section id="beneficios-fiscais">...</section>
         <section id="consultoria-tributaria">...</section>

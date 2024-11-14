@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import { Poppins } from "next/font/google";
 import "./globals.css";
+import { Poppins } from "next/font/google";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -19,8 +19,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`${poppins.variable} antialiased`}>
+    <html lang="en" className={poppins.variable}>
+      <body className="antialiased w-screen h-screen font-sans overflow-x-hidden">
         {children}
       </body>
     </html>

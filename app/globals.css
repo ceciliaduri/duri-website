@@ -3,8 +3,25 @@
 @tailwind utilities;
 
 body {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-poppins);
 }
+
+
+h1 {
+  @apply text-5xl font-bold; 
+  font-family: var(--font-poppins);
+}
+
+h2 {
+  @apply text-2xl font-light italic;
+  font-family: var(--font-poppins);
+}
+
+p {
+  @apply text-base font-normal;
+  font-family: var(--font-poppins);
+}
+
 
 @layer base {
   :root {
