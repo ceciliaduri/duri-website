@@ -43,7 +43,7 @@ const AccordionGroup: React.FC<AccordionGroupProps> = ({ services }) => {
             {services.map((service, index) => (
                 <div key={index} className='flex items-start gap-4 justify-center'>
                     <Image src={service.icon} width={54} height={54} alt={service.title} className='bg-[#FEF2F2] p-2 rounded-md shadow-md' />
-                    <Accordion type="multiple" value={openItems} onValueChange={(value) => toggleItem(`item-${index}`)} className='w-full'>
+                    <Accordion type="multiple" value={openItems} onValueChange={() => toggleItem(`item-${index}`)} className='w-full'>
                         <AccordionItem value={`item-${index}`}>
                             <AccordionTrigger className='font-bold'>{service.title}</AccordionTrigger>
                             <AccordionContent className='h-full' ref={el => { accordionRefs.current[index] = el; }}>
