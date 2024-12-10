@@ -31,39 +31,47 @@ const Footer: React.FC = () => {
       </div>
 
       {/* CONTENT */}
-      <div className='flex justify-around w-full items-center align'>
-        <div className='flex flex-col text-left'>
-          <p className='font-semibold pb-2'>Matriz - Recife</p>
-          <div className='flex flex-col gap-4'>
-            <p className='flex text-wrap gap-1 max-w-60'>
-              <span className='text-duri-light text-[10px]'>
+      <div className="flex justify-around w-full items-center">
+        {/* Matriz */}
+        <div className="flex flex-col text-left self-start">
+          <p className="font-semibold pb-2">Matriz - Recife</p>
+          <div className="flex flex-col gap-4">
+            <p className="flex text-wrap gap-1 max-w-60">
+              <span className="text-duri-light text-[10px]">
                 <MapPin />
               </span>
               Rua Ribeiro de Brito, nº 830.
               Centro Empresarial Iberbras.
               Boa Viagem, Recife - PE.
             </p>
-            <p className='flex text-wrap gap-1 max-w-60'>
-              <span className='text-duri-light text-[10px]'>
+            <p className="flex text-wrap gap-1 max-w-60">
+              <span className="text-duri-light text-[10px]">
                 <Phone />
               </span>
               +55 (81) 3341-3438
             </p>
           </div>
         </div>
-        <div className='flex flex-col items-center gap-4'>
+
+        {/* Logo Duri */}
+        <div className="flex flex-col items-center gap-4">
           <Image
             src={'/duriLogo.png'}
-            width={250}
-            height={100}
-            alt='Logo Duri' />
-          <p className='italic max-w-72 text-[18px] text-center'>Desde 1998 sendo seu parceiro  para soluções integradas em comercio exterior.</p>
+            width={200}
+            height={80}
+            alt="Logo Duri"
+          />
+          <p className="italic max-w-72 text-center">
+            Desde 1998 sendo seu parceiro para soluções integradas em comercio exterior.
+          </p>
         </div>
-        <div className='flex flex-col text-left'>
-          <p className='font-semibold pb-2'>Filial - João Pessoa</p>
-          <div className='flex flex-col gap-4'>
-            <p className='flex text-wrap gap-1 max-w-60'>
-              <span className='text-duri-light text-[10px]'>
+
+        {/* Filial */}
+        <div className="flex flex-col text-left self-start">
+          <p className="font-semibold pb-2">Filial - João Pessoa</p>
+          <div className="flex flex-col gap-4">
+            <p className="flex text-wrap gap-1 max-w-60">
+              <span className="text-duri-light text-[10px]">
                 <MapPin />
               </span>
               Avenida Dom Pedro II, Nº 962.
