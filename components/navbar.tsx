@@ -1,6 +1,7 @@
 'use client';
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 
 const Navbar: React.FC = () => {
   const [activeSection, setActiveSection] = useState<string>('');
@@ -37,7 +38,7 @@ const Navbar: React.FC = () => {
     <nav className="fixed top-6 left-16 right-16 bg-white text-[#252525] py-0.5 px-5 flex gap-20 items-center rounded-full shadow-md z-50">
       <Image src={'/duriLogo.png'} alt="Duri Logo" width={120} height={45} />
       <div className="flex justify-between items-center w-screen">
-        <a
+        <Link
           href="/#home"
           onClick={(e) => {
             e.preventDefault();
@@ -51,8 +52,8 @@ const Navbar: React.FC = () => {
           className={activeSection === 'home' ? 'text-duri-light' : ''}
         >
           Home
-        </a>
-        <a
+        </Link>
+        <Link
           href="/#quem-somos"
           onClick={(e) => {
             e.preventDefault();
@@ -66,8 +67,8 @@ const Navbar: React.FC = () => {
           className={activeSection === 'quem-somos' ? 'text-duri-light' : ''}
         >
           Quem Somos
-        </a>
-        <a
+        </Link>
+        <Link
           href="/#servicos"
           onClick={(e) => {
             e.preventDefault();
@@ -81,22 +82,22 @@ const Navbar: React.FC = () => {
           className={activeSection === 'servicos' ? 'text-duri-light' : ''}
         >
           Serviços
-        </a>
-        <a href="/beneficios-fiscais">
+        </Link>
+        <Link href="/beneficios-fiscais">
           <p className={activeSection === 'beneficios-fiscais' ? 'text-duri-light' : ''}>
             Benefícios Fiscais
           </p>
-        </a>
-        <a href="/consultoria-tributaria">
+        </Link>
+        <Link href="/consultoria-tributaria">
           <p className={activeSection === 'consultoria-tributaria' ? 'text-duri-light' : ''}>
             Consultoria Tributária
           </p>
-        </a>
-        <a href={'/contato'}>
+        </Link>
+        <Link href={'/contato'}>
           <button className="bg-duri-light rounded-full p-1 px-8 font-bold text-white hover:bg-duri-dark">
             Entre em Contato
           </button>
-        </a>
+        </Link>
       </div>
     </nav>
   );
