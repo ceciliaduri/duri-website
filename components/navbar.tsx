@@ -6,7 +6,7 @@ const Navbar: React.FC = () => {
   const [activeSection, setActiveSection] = useState<string>('');
 
   useEffect(() => {
-    const sections = document.querySelectorAll("section");
+    const sections = document.querySelectorAll('section');
 
     const handleScroll = () => {
       let currentSection: string | null = null;
@@ -26,42 +26,58 @@ const Navbar: React.FC = () => {
     };
 
     window.addEventListener('scroll', handleScroll);
-    handleScroll(); // Inicializar o estado
+    handleScroll();
 
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
 
-  const handleSmoothScroll = (event: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
-    event.preventDefault();
-    const targetElement = document.getElementById(targetId);
-    if (targetElement) {
-      targetElement.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
   return (
     <nav className="fixed top-6 left-16 right-16 bg-white text-[#252525] py-0.5 px-5 flex gap-20 items-center rounded-full shadow-md z-50">
       <Image src={'/duriLogo.png'} alt="Duri Logo" width={120} height={45} />
       <div className="flex justify-between items-center w-screen">
         <a
-          href="#home"
-          onClick={(e) => handleSmoothScroll(e, 'home')}
+          href="/#home"
+          onClick={(e) => {
+            e.preventDefault();
+            const isHome = window.location.pathname === '/';
+            if (isHome) {
+              document.getElementById('home')?.scrollIntoView({ behavior: 'smooth' });
+            } else {
+              window.location.href = '/#home';
+            }
+          }}
           className={activeSection === 'home' ? 'text-duri-light' : ''}
         >
           Home
         </a>
         <a
-          href="#quem-somos"
-          onClick={(e) => handleSmoothScroll(e, 'quem-somos')}
+          href="/#quem-somos"
+          onClick={(e) => {
+            e.preventDefault();
+            const isHome = window.location.pathname === '/';
+            if (isHome) {
+              document.getElementById('quem-somos')?.scrollIntoView({ behavior: 'smooth' });
+            } else {
+              window.location.href = '/#quem-somos';
+            }
+          }}
           className={activeSection === 'quem-somos' ? 'text-duri-light' : ''}
         >
           Quem Somos
         </a>
         <a
-          href="#servicos"
-          onClick={(e) => handleSmoothScroll(e, 'servicos')}
+          href="/#servicos"
+          onClick={(e) => {
+            e.preventDefault();
+            const isHome = window.location.pathname === '/';
+            if (isHome) {
+              document.getElementById('servicos')?.scrollIntoView({ behavior: 'smooth' });
+            } else {
+              window.location.href = '/#servicos';
+            }
+          }}
           className={activeSection === 'servicos' ? 'text-duri-light' : ''}
         >
           Serviços

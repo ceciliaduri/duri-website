@@ -7,12 +7,14 @@ import { Label } from '../ui/label';
 import { Input } from '../ui/input';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../ui/select';
 import { Button } from '../ui/button';
+import { BriefcaseBusiness, File, DollarSign } from 'lucide-react';
+
 
 const Contact: React.FC = () => {
     return (
-        <div className='flex flex-col items-center my-[20vh] gap-16'>
+        <div className='flex flex-col items-center mt-[15vh] gap-16 p-16'>
             <div className='flex flex-col gap-16'>
-                <h1 className='text-4xl text-center'>
+                <h1 className='text-6xl text-center font-normal'>
                     Somos seu Parceiro para Soluções <br />
                     <span className='text-duri-light'>Estratégicas e Integradas</span> em <br />Comércio Exterior
                 </h1>
@@ -85,12 +87,61 @@ const Contact: React.FC = () => {
                     </Card>
                     <Image
                         src={'/contacts/formImage.svg'}
-                        width={400}
-                        height={400}
+                        width={600}
+                        height={600}
                         alt="Imagem de um formulário"
-                        className='w-1/2'
                     />
                 </div>
+            </div>
+            <div className='flex flex-col items-center'>
+                <div className="relative w-screen h-[40vh] overflow-x-hidden">
+                    <Image
+                        src="/contacts/heroImage.svg"
+                        alt="Imagem de um porto"
+                        fill
+                        className="object-cover w-full h-full max-w-none"
+                        priority
+                    />
+                    <div className="absolute inset-0 bg-[#5C0508A6] bg-opacity-65"></div>
+                    <div className="absolute inset-0 flex flex-col items-center justify-center text-white text-center px-4 w02">
+                        <h1 className="text-6xl">Contatos</h1>
+                    </div>
+                </div>
+            </div>
+            <div className='flex justify-around w-full'>
+                <Card className='shadow-md p-4'>
+                    <CardContent className='flex flex-col text-center items-center'>
+                        <div className="w-16 h-16 rounded-full bg-red-50 flex items-center justify-center mb-4">
+                            <BriefcaseBusiness className="w-8 h-8 text-duri-dark" />
+                        </div>
+                        <p className='font-bold'>Comercial</p>
+                        <p>+55 (81) 99424-2112</p>
+                        <p>+55 (81) 3341-3438</p>
+                        <p>comercial@duri.com.br</p>
+                    </CardContent>
+                </Card>
+                <Card className='shadow-md p-4'>
+                    <CardContent className='flex flex-col text-center items-center'>
+                        <div className="w-16 h-16 rounded-full bg-red-50 flex items-center justify-center mb-4">
+                            <File className="w-8 h-8 text-duri-dark" />
+                        </div>
+                        <p className='font-bold'>Operacional</p>
+                        <p>+55 (81) 99635-4738</p>
+                        <p>+55 (81) 3341-3438</p>
+                        <p>operacional@duri.com.br</p>
+                    </CardContent>
+                </Card>
+                <Card className='shadow-md p-4'>
+                    <CardContent className='flex flex-col text-center items-center'>
+                        <div className="w-16 h-16 rounded-full bg-red-50 flex items-center justify-center mb-4">
+                            <DollarSign className="w-8 h-8 text-duri-dark" />
+                        </div>
+                        <p className='font-bold'>Comercial</p>
+                        <p>+55 (81) 99424-3636</p>
+                        <p>+55 (81) 3341-3438</p>
+                        <p>financeiro@duri.com.br</p>
+                    </CardContent>
+                </Card>
             </div>
         </div>
     );
