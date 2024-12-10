@@ -1,6 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import AccordionGroup from '../support/accordionGroup';
+import Supporters from './supporters';
 const services = [
     {
         icon: "/icons/navio.svg",
@@ -70,6 +71,7 @@ const ServicesSection: React.FC = () => {
                 </div>
             </div>
             <AccordionGroup services={services} />
+            <Supporters />
         </div>
     );
 };

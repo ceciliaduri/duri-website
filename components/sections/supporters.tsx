@@ -1,6 +1,5 @@
 import React from 'react';
 import { Card, CardContent } from '../ui/card';
-import { Button } from '../ui/button';
 
 const Supporters: React.FC = () => {
     return (
@@ -13,7 +12,9 @@ const Supporters: React.FC = () => {
             </Card>
             <div className='flex flex-col items-center align-center gap-8'>
                 <h3 className='text-5xl text-center'>Transformamos <span className='text-duri-medium'>Desafios em <br />Oportunidades</span> Através de <br />Soluções de Comércio Exterior</h3>
-                <Button className='w-1/3 bg-duri-light hover:bg-duri-dark rounded-full p-2 font-bold'>Conheça nosso Trabalho</Button>
+                <button className="bg-duri-light rounded-full p-1 px-8 font-bold text-white hover:bg-duri-dark">
+                    Conheça nosso Trabalho
+                </button>
             </div>
         </div>
     );
