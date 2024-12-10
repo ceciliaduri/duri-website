@@ -4,8 +4,9 @@ import { MapPin, Phone } from 'lucide-react';
 
 const Footer: React.FC = () => {
   return (
-    <footer className='bg-white flex items-center justify-between p-8'>
-      <div className='flex flex-col items-center gap-4'>
+    <footer className='bg-white flex items-center p-8'>
+      {/* SOCIAIS */}
+      <div className='flex flex-col items-center gap-4 pr-8'>
         <a href="">
           <Image src={'/social/whatsapp.svg'}
             width={26}
@@ -28,15 +29,9 @@ const Footer: React.FC = () => {
           />
         </a>
       </div>
-      <div className='flex flex-col items-center gap-4'>
-        <Image
-          src={'/duriLogo.png'}
-          width={250}
-          height={100}
-          alt='Logo Duri' />
-        <p className='italic max-w-72 text-[18px] text-center'>Desde 1998 sendo seu parceiro  para soluções integradas em comercio exterior.</p>
-      </div>
-      <div className='flex items-top w-1/2 justify-around'>
+
+      {/* CONTENT */}
+      <div className='flex justify-around w-full items-center align'>
         <div className='flex flex-col text-left'>
           <p className='font-semibold pb-2'>Matriz - Recife</p>
           <div className='flex flex-col gap-4'>
@@ -55,7 +50,14 @@ const Footer: React.FC = () => {
               +55 (81) 3341-3438
             </p>
           </div>
-
+        </div>
+        <div className='flex flex-col items-center gap-4'>
+          <Image
+            src={'/duriLogo.png'}
+            width={250}
+            height={100}
+            alt='Logo Duri' />
+          <p className='italic max-w-72 text-[18px] text-center'>Desde 1998 sendo seu parceiro  para soluções integradas em comercio exterior.</p>
         </div>
         <div className='flex flex-col text-left'>
           <p className='font-semibold pb-2'>Filial - João Pessoa</p>
@@ -70,6 +72,7 @@ const Footer: React.FC = () => {
           </div>
         </div>
       </div>
+
     </footer >
   );
 };

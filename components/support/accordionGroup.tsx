@@ -39,19 +39,19 @@ const AccordionGroup: React.FC<AccordionGroupProps> = ({ services }) => {
     }, [openItems]);
 
     return (
-        <div className="grid grid-cols-2 gap-8 w-full p-16">
+        <div className="grid grid-cols-2 gap-16 w-full p-16">
             {services.map((service, index) => (
                 <div key={index} className='flex items-start gap-4 justify-center'>
-                    <Image src={service.icon} width={54} height={54} alt={service.title} className='bg-[#FEF2F2] p-2 rounded-md shadow-md' />
+                    <Image src={service.icon} width={54} height={54} alt={service.title} className='bg-[#FEF2F2] p-3 rounded-md shadow-md' />
                     <Accordion type="multiple" value={openItems} onValueChange={() => toggleItem(`item-${index}`)} className='w-full'>
                         <AccordionItem value={`item-${index}`}>
                             <AccordionTrigger className='font-bold'>{service.title}</AccordionTrigger>
                             <AccordionContent className='h-full' ref={el => { accordionRefs.current[index] = el; }}>
                                 <div className="flex flex-col h-full">
-                                    <p className="flex-grow mb-8 text-[#6B6B6B]">{service.content}</p>
+                                    <p className="flex-grow mb-4 text-[#6B6B6B]">{service.content}</p>
                                     {service.hasButton && (
-                                        <div className="flex justify-center w-full pb-4">
-                                            <Button className='w-1/2 bg-duri-light rounded-full font-bold'>
+                                        <div className="flex justify-start w-full pb-4">
+                                            <Button className='w-1/4 bg-duri-light hover:bg-duri-dark rounded-full font-bold'>
                                                 Saiba Mais
                                             </Button>
                                         </div>
