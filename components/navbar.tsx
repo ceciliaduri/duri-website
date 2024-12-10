@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 
 const Navbar: React.FC = () => {
-  const [activeSection, setActiveSection] = useState<string>('home');
+  const [activeSection, setActiveSection] = useState<string>('');
 
   useEffect(() => {
     const sections = document.querySelectorAll("section");
