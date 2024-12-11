@@ -1,6 +1,5 @@
 import Image from 'next/image';
 import React from 'react';
-Image
 
 const BenefitsHero: React.FC = () => {
     return (
