@@ -86,7 +86,7 @@ const Contact: React.FC = () => {
                         </CardContent>
                     </Card>
                     <Image
-                        src={'/contacts/formImage.svg'}
+                        src={'/contacts/formImage.png'}
                         width={600}
                         height={600}
                         alt="Imagem de um formulário"
@@ -96,7 +96,7 @@ const Contact: React.FC = () => {
             <div className='flex flex-col items-center'>
                 <div className="relative w-screen h-[40vh] overflow-x-hidden">
                     <Image
-                        src="/contacts/heroImage.svg"
+                        src="/contacts/heroImage.png"
                         alt="Imagem de um porto"
                         fill
                         className="object-cover w-full h-full max-w-none"
