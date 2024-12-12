@@ -2,31 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-h1,
-h2,
-h3 {
-  font-family: 'Poppins', sans-serif;
-  font-weight: bold;
-}
-
-h2 {
-  font-style: italic;
-  font-weight: 300; /* Poppins Light */
-  font-size: 32px;
-}
-
-p {
-  font-family: 'Poppins', sans-serif;
-  font-weight: 500; /* Poppins Regular */
-}
-
-button {
-  font-family: 'Poppins', sans-serif;
-  font-weight: 700; /* Poppins Bold */
-}
-
-
-
 @layer base {
   :root {
     --background: 0 0% 100%;

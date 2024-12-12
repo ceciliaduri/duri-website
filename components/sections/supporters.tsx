@@ -6,12 +6,12 @@ const Supporters: React.FC = () => {
         <div className='flex flex-col p-16 items-center w-full gap-16'>
             <Card className="w-full max-w-8xl shadow-lg mx-auto">
                 <CardContent className="flex flex-col items-center p-8">
-                    <h1 className='font-bold text-4xl'>Empresas que confiam na <span className='text-duri-medium'>DURI</span></h1>
+                    <h1 className='font-bold text-2xl'>Empresas que confiam na <span className='text-duri-medium'>DURI</span></h1>
                     <h2 className='text-[#6B6B6B]'>Clientes e Parceiros</h2>
                 </CardContent>
             </Card>
             <div className='flex flex-col items-center align-center gap-8'>
-                <h1 className='text-5xl text-center font-normal'>Transformamos <span className='text-duri-medium'>Desafios em <br />Oportunidades</span> Através de <br />Soluções de Comércio Exterior</h1>
+                <h1 className='text-3xl text-center font-normal'>Transformamos <span className='text-duri-medium'>Desafios em Oportunidades</span> Através de <br />Soluções de Comércio Exterior</h1>
                 <button className="bg-duri-light rounded-full p-1 px-8 font-bold text-white hover:bg-duri-dark">
                     Conheça nosso Trabalho
                 </button>

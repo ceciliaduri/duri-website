@@ -44,13 +44,13 @@ const AccordionGroup: React.FC<AccordionGroupProps> = ({ services }) => {
                     <Image src={service.icon} width={54} height={54} alt={service.title} className='bg-[#FEF2F2] p-3 rounded-md shadow-md' />
                     <Accordion type="multiple" value={openItems} onValueChange={() => toggleItem(`item-${index}`)} className='w-full'>
                         <AccordionItem value={`item-${index}`}>
-                            <AccordionTrigger className='font-bold'>{service.title}</AccordionTrigger>
+                            <AccordionTrigger>{service.title}</AccordionTrigger>
                             <AccordionContent className='h-full' ref={el => { accordionRefs.current[index] = el; }}>
                                 <div className="flex flex-col h-full">
                                     <p className="flex-grow mb-4 text-[#6B6B6B]">{service.content}</p>
                                     {service.hasButton && (
                                         <div className="flex justify-start w-full pb-4">
-                                            <button className="bg-duri-light rounded-full p-1 px-8 font-bold text-white hover:bg-duri-dark">
+                                            <button className="bg-duri-light rounded-full p-1 px-8 text-white hover:bg-duri-dark">
                                                 Saiba Mais
                                             </button>
                                         </div>
