@@ -135,7 +135,7 @@ const Contact: React.FC = () => {
                         <div className="w-16 h-16 rounded-full bg-red-50 flex items-center justify-center mb-4">
                             <DollarSign className="w-8 h-8 text-duri-dark" />
                         </div>
-                        <p className='font-bold'>Comercial</p>
+                        <p className='font-bold'>Financeiro</p>
                         <p>+55 (81) 99424-3636</p>
                         <p>+55 (81) 3341-3438</p>
                         <p>financeiro@duri.com.br</p>
