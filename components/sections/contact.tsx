@@ -21,7 +21,7 @@ const Contact: React.FC = () => {
                     <Card className='p-4 w-1/2'>
                         <CardContent>
                             <form className="flex flex-col gap-4">
-                                <h3 className='text-duri-medium'>
+                                <h3 className='text-duri-medium text-xl'>
                                     Preencha os campos que entraremos em contato!
                                 </h3>
                                 <div>
