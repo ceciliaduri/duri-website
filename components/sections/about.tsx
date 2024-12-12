@@ -7,7 +7,7 @@ const AboutSection: React.FC = () => {
     return (
         <div className='flex p-16 flex-col gap-16'>
             <h1 className='text-3xl text-center'>
-                Nosso objetivo é importar e exportar de <span className='text-red-500'>forma simplificada</span>
+                Nosso objetivo é importar e exportar de <span className='text-red-500'><br />forma simplificada</span>
             </h1>
             <div className='grid grid-cols-2'>
                 <Image
