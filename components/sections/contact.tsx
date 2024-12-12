@@ -78,9 +78,9 @@ const Contact: React.FC = () => {
                                         informações colocadas acima, em concordancia com os termos gerais da LGPD.
                                     </Label>
                                 </div>
-                                <Button className="bg-duri-light w-1/2 hover:bg-duri-dark">
+                                <button className="bg-duri-light rounded-full p-1 px-8 text-white hover:bg-duri-dark w-1/3">
                                     Enviar Informações
-                                </Button>
+                                </button>
                             </form>
                         </CardContent>
                     </Card>

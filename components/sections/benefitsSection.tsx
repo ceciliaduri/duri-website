@@ -31,7 +31,7 @@ const BenefitsSection: React.FC = () => {
                 </Card>
                 <Card className='flex flex-col items-center gap-6 p-6 shadow-md'>
                     <h3 className='text-duri-medium uppercase text-2xl'>TARE</h3>
-                    <p className='text-[#252525B2]'>Proporciona uma diminuição no ICMS de importação, com <span className='font-bold'>única condição</span> de verificar a lista de produtos divulgada pelo Estado, pois alguns itens não podem ser incluídos.</p>
+                    <p className='text-[#252525B2]'>Proporciona uma diminuição no ICMS de importação, <br />com <span className='font-bold'>única condição</span> de verificar a lista de produtos divulgada pelo Estado, pois alguns itens não podem ser incluídos.</p>
                     <p className='text-[#252525B2] self-start'>É um incentivo fiscal oferecido pelo <span className='font-bold'>estado da Paraíba.</span></p>
                 </Card>
                 <Card className='flex flex-col items-center gap-6 p-6 shadow-md'>
