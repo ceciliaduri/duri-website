@@ -12,7 +12,7 @@ import { BriefcaseBusiness, File, DollarSign } from 'lucide-react';
 
 const Contact: React.FC = () => {
     return (
-        <div className='flex flex-col items-center mt-[15vh] gap-16 p-16'>
+        <div className='flex flex-col items-center mt-16 gap-16 p-16'>
             <div className='flex flex-col gap-16'>
                 <h1 className='text-3xl text-center font-normal'>
                     Somos seu Parceiro para Soluções <span className='text-duri-light'>Estratégicas e Integradas</span> <br />em Comércio Exterior
