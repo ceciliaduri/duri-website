@@ -5,9 +5,9 @@ const BenefitsSection: React.FC = () => {
     return (
         <section className='flex flex-col p-16 gap-16'>
             <div className='flex flex-col gap-16'>
-                <p className='text-2xl text-[#252525B2]'>Benefícios fiscais são <span className='font-bold'>incentivos</span> concedidos pelo governo brasileiro para estimular determinados setores econômicos, atividades ou regiões do país. Eles consistem em <span className='font-bold'>reduções, isenções, compensações ou adiamentos</span> no pagamento de tributos com o objetivo principal de promover o desenvolvimento econômico e social.
+                <p className='text-xl text-[#252525B2]'>Benefícios fiscais são <span className='font-bold'>incentivos</span> concedidos pelo governo brasileiro para estimular determinados setores econômicos, atividades ou regiões do país. Eles consistem em <span className='font-bold'>reduções, isenções, compensações ou adiamentos</span> no pagamento de tributos com o objetivo principal de promover o desenvolvimento econômico e social.
                 </p>
-                <p className='text-2xl text-[#252525B2]'>
+                <p className='text-xl text-[#252525B2]'>
                     Nossa equipe <span className='text-duri-light font-bold'>especializada em comércio exterior e direito tributário</span> analisa minuciosamente os dados da sua empresa e suas operações para identificar os melhores benefícios fiscais disponíveis. Trabalhamos com alguns programas estratégicos:
                 </p>
             </div>
@@ -40,8 +40,8 @@ const BenefitsSection: React.FC = () => {
                     <p className='text-[#252525B2]'>Permite realizar <span className='font-bold'>planejamentos tributários estratégicos</span>, combinando outros benefícios fiscais, e resulta em queda significativa do ICMS.</p>
                 </Card>
             </div>
-            <div className='flex flex-col items-center gap-16'>
-                <h1 className='text-5xl text-center font-normal'>Garantimos a <span className='text-duri-medium'>otimização dos <br />seus recursos</span> com a orientação<br />dos nossos especialistas</h1>
+            <div className='flex flex-col items-center gap-8'>
+                <h1 className='text-3xl text-center font-normal'>Garantimos a <span className='text-duri-medium'>otimização dos seus recursos</span> com a orientação<br />dos nossos especialistas</h1>
                 <button className="bg-duri-light rounded-full p-1 px-8 font-bold text-white hover:bg-duri-dark">
                     Saiba Mais
                 </button>

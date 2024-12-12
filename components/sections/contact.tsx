@@ -14,9 +14,8 @@ const Contact: React.FC = () => {
     return (
         <div className='flex flex-col items-center mt-[15vh] gap-16 p-16'>
             <div className='flex flex-col gap-16'>
-                <h1 className='text-6xl text-center font-normal'>
-                    Somos seu Parceiro para Soluções <br />
-                    <span className='text-duri-light'>Estratégicas e Integradas</span> em <br />Comércio Exterior
+                <h1 className='text-3xl text-center font-normal'>
+                    Somos seu Parceiro para Soluções <span className='text-duri-light'>Estratégicas e Integradas</span> <br />em Comércio Exterior
                 </h1>
                 <div className='flex items-center gap-16 w-full'>
                     <Card className='p-4 w-1/2'>
@@ -79,7 +78,7 @@ const Contact: React.FC = () => {
                                         informações colocadas acima.
                                     </Label>
                                 </div>
-                                <Button className="bg-duri-light w-1/2 mt-4 hover:bg-duri-dark">
+                                <Button className="bg-duri-light w-1/2 hover:bg-duri-dark">
                                     Enviar Informações
                                 </Button>
                             </form>
@@ -87,8 +86,8 @@ const Contact: React.FC = () => {
                     </Card>
                     <Image
                         src={'/contacts/formImage.png'}
-                        width={600}
-                        height={600}
+                        width={500}
+                        height={500}
                         alt="Imagem de um formulário"
                     />
                 </div>
@@ -104,7 +103,7 @@ const Contact: React.FC = () => {
                     />
                     <div className="absolute inset-0 bg-[#5C0508A6] bg-opacity-65"></div>
                     <div className="absolute inset-0 flex flex-col items-center justify-center text-white text-center px-4 w02">
-                        <h1 className="text-6xl">Contatos</h1>
+                        <h1 className="text-3xl">Contatos</h1>
                     </div>
                 </div>
             </div>

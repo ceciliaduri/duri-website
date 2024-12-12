@@ -37,7 +37,7 @@ const Footer: React.FC = () => {
           <p className="font-semibold pb-2">Matriz - Recife</p>
           <div className="flex flex-col gap-4">
             <p className="flex text-wrap gap-1 max-w-60">
-              <span className="text-duri-light text-[10px]">
+              <span className="text-duri-light">
                 <MapPin />
               </span>
               Rua Ribeiro de Brito, nº 830.
@@ -45,7 +45,7 @@ const Footer: React.FC = () => {
               Boa Viagem, Recife - PE.
             </p>
             <p className="flex text-wrap gap-1 max-w-60">
-              <span className="text-duri-light text-[10px]">
+              <span className="text-duri-light">
                 <Phone />
               </span>
               +55 (81) 3341-3438
@@ -71,7 +71,7 @@ const Footer: React.FC = () => {
           <p className="font-semibold pb-2">Filial - João Pessoa</p>
           <div className="flex flex-col gap-4">
             <p className="flex text-wrap gap-1 max-w-60">
-              <span className="text-duri-light text-[10px]">
+              <span className="text-duri-light">
                 <MapPin />
               </span>
               Avenida Dom Pedro II, Nº 962.
