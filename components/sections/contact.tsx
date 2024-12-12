@@ -75,7 +75,7 @@ const Contact: React.FC = () => {
                                     <Checkbox id="terms" />
                                     <Label htmlFor="terms" className='text-sm text-[#777E90]'>
                                         Ao clicar nesse botão você concorda que a Duri Trading faça uso dessas
-                                        informações colocadas acima.
+                                        informações colocadas acima, em concordancia com os termos gerais da LGPD.
                                     </Label>
                                 </div>
                                 <Button className="bg-duri-light w-1/2 hover:bg-duri-dark">
