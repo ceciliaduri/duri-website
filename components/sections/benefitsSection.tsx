@@ -3,7 +3,7 @@ import { Card } from '../ui/card';
 
 const BenefitsSection: React.FC = () => {
     return (
-        <section className='flex flex-col p-16 gap-16'>
+        <section className='flex flex-col py-16 px-40 gap-16'>
             <div className='flex flex-col gap-16'>
                 <p className='text-xl text-[#252525B2]'>Benefícios fiscais são <span className='font-bold'>incentivos</span> concedidos pelo governo brasileiro para estimular determinados setores econômicos, atividades ou regiões do país. Eles consistem em <span className='font-bold'>reduções, isenções, compensações ou adiamentos</span> no pagamento de tributos com o objetivo principal de promover o desenvolvimento econômico e social.
                 </p>
@@ -35,7 +35,7 @@ const BenefitsSection: React.FC = () => {
                     <p className='text-[#252525B2] self-start'>É um incentivo fiscal oferecido pelo <span className='font-bold'>estado da Paraíba.</span></p>
                 </Card>
                 <Card className='flex flex-col items-center gap-6 p-6 shadow-md'>
-                    <h3 className='text-duri-medium uppercase text-2xl'>Sistemática Atacadista de Tecidos</h3>
+                    <h3 className='text-duri-medium uppercase text-2xl text-center'>Sistemática Atacadista de Tecidos</h3>
                     <p className='text-[#252525B2]'>A Sistemática, é um incentivo voltado para <span className='font-bold'>atacadistas do setor têxtil</span>.</p>
                     <p className='text-[#252525B2]'>Permite realizar <span className='font-bold'>planejamentos tributários estratégicos</span>, combinando outros benefícios fiscais, e resulta em queda significativa do ICMS.</p>
                 </Card>
