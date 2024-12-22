@@ -61,6 +61,49 @@ const AboutSection: React.FC = () => {
                     </div>
                 </CardContent>
             </Card>
+            <Card
+                style={{
+                    backgroundImage: 'url(/comex/comexBackground.png)',
+                    backgroundSize: 'cover',
+                    backgroundRepeat: 'no-repeat',
+                    backgroundPosition: 'center',
+                }}
+                className="w-full max-w-8xl shadow-lg mx-auto"
+            >
+                <CardContent className="p-8 flex items-center justify-around text-white">
+                    <div className="text-4xl">
+                        Eleita Duas Vezes a Trading <span className='font-bold'>Mais <br />
+                            Recomendada</span> de Pernambuco
+                    </div>
+                    <Image
+                        src={'/comex/comexLogo.png'}
+                        alt="Logomarca Comex Pernambuco"
+                        width={340}
+                        height={160}
+                    />
+                </CardContent>
+            </Card>
+            <div className='flex justify-around'>
+                <div className='flex items-center flex-col gap-1'>
+                    <Image
+                        src={'/comex/comex1.png'}
+                        alt='Destaques Comex 2023'
+                        width={450}
+                        height={450}
+                    />
+                    <p>Destaques COMEX 2023</p>
+                </div>
+                <div className='flex items-center flex-col gap-1'>
+                    <Image
+                        src={'/comex/comex2.png'}
+                        alt='Destaques Comex 2024'
+                        width={450}
+                        height={450}
+                    />
+                    <p>Destaques COMEX 2024</p>
+                </div>
+
+            </div>
         </div>
     );
 };
