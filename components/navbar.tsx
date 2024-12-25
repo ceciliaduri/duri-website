@@ -2,9 +2,11 @@
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 const Navbar: React.FC = () => {
   const [activeSection, setActiveSection] = useState<string>('');
+  const pathname = usePathname();
 
   useEffect(() => {
     const sections = document.querySelectorAll('section');
@@ -34,6 +36,8 @@ const Navbar: React.FC = () => {
     };
   }, []);
 
+  const isPathActive = (path: string) => pathname === path;
+
   return (
     <nav className="fixed top-6 left-16 right-16 bg-white text-[#252525] py-0.5 px-5 flex gap-20 items-center rounded-full shadow-md z-50">
       <Image src={'/duriLogo.png'} alt="Duri Logo" width={120} height={45} />
@@ -42,7 +46,7 @@ const Navbar: React.FC = () => {
           href="/#home"
           onClick={(e) => {
             e.preventDefault();
-            const isHome = window.location.pathname === '/';
+            const isHome = pathname === '/';
             if (isHome) {
               document.getElementById('home')?.scrollIntoView({ behavior: 'smooth' });
             } else {
@@ -57,7 +61,7 @@ const Navbar: React.FC = () => {
           href="/#quem-somos"
           onClick={(e) => {
             e.preventDefault();
-            const isHome = window.location.pathname === '/';
+            const isHome = pathname === '/';
             if (isHome) {
               document.getElementById('quem-somos')?.scrollIntoView({ behavior: 'smooth' });
             } else {
@@ -72,7 +76,7 @@ const Navbar: React.FC = () => {
           href="/#servicos"
           onClick={(e) => {
             e.preventDefault();
-            const isHome = window.location.pathname === '/';
+            const isHome = pathname === '/';
             if (isHome) {
               document.getElementById('servicos')?.scrollIntoView({ behavior: 'smooth' });
             } else {
@@ -84,12 +88,12 @@ const Navbar: React.FC = () => {
           Serviços
         </Link>
         <Link href="/beneficios-fiscais">
-          <p className={activeSection === 'beneficios-fiscais' ? 'text-duri-light' : ''}>
+          <p className={isPathActive('/beneficios-fiscais') ? 'text-red-500' : ''}>
             Benefícios Fiscais
           </p>
         </Link>
         <Link href="/consultoria-tributaria">
-          <p className={activeSection === 'consultoria-tributaria' ? 'text-duri-light' : ''}>
+          <p className={isPathActive('/consultoria-tributaria') ? 'text-red-500' : ''}>
             Consultoria Tributária
           </p>
         </Link>
