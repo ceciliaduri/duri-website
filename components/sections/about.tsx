@@ -17,10 +17,10 @@ const AboutSection: React.FC = () => {
                     height={450}
                 />
                 <div className='flex flex-col gap-10 text-[#252525B2]'>
-                    <p className='text-xl'>
+                    <p className='text-xl text-justify'>
                         Formada por profissionais das áreas financeira, tributária e de comércio exterior, a <span className='font-semibold'>Duri Trading</span> vem trabalhando desde 1998 para oferecer seus serviços a empresas que necessitam executar operações de importação e exportação com <span className='text-duri-medium font-semibold'>custos e prazos otimizados.</span>
                     </p>
-                    <p className='text-xl'>Somos o elo que <span className='font-semibold'>aproxima comprador e vendedor</span> em um mercado global.</p>
+                    <p className='text-xl text-justify'>Somos o elo que <span className='font-semibold'>aproxima comprador e vendedor</span> em um mercado global.</p>
                     <div>
                         <p className='text-xl'>• Reduzindo distâncias.</p>
                         <p className='text-xl'>• Minimizando as burocracias.</p>
