@@ -4,6 +4,7 @@ import React, { useEffect, useRef } from 'react';
 import Image from 'next/image';
 import { useAccordionGroup } from '@/hooks/useAccordionGroup';
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from '@/components/ui/accordion';
+import Link from 'next/link';
 
 interface AccordionGroupProps {
     services: {
@@ -11,6 +12,7 @@ interface AccordionGroupProps {
         title: string;
         content: string;
         hasButton: boolean;
+        buttonLink?: string;
     }[];
 }
 
@@ -50,9 +52,11 @@ const AccordionGroup: React.FC<AccordionGroupProps> = ({ services }) => {
                                     <p className="flex-grow mb-4 text-[#6B6B6B]">{service.content}</p>
                                     {service.hasButton && (
                                         <div className="flex justify-start w-full pb-4">
-                                            <button className="bg-duri-light rounded-full p-1 px-8 text-white hover:bg-duri-dark">
-                                                Saiba Mais
-                                            </button>
+                                            <Link href={service.buttonLink || ''}>
+                                                <button className="bg-duri-light rounded-full p-1 px-8 text-white hover:bg-duri-dark">
+                                                    Saiba Mais
+                                                </button>
+                                            </Link>
                                         </div>
                                     )}
                                 </div>

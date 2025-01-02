@@ -1,5 +1,6 @@
 import React from 'react';
 import { Card } from '../ui/card';
+import Link from 'next/link';
 
 const BenefitsSection: React.FC = () => {
     return (
@@ -42,9 +43,11 @@ const BenefitsSection: React.FC = () => {
             </div>
             <div className='flex flex-col items-center gap-8'>
                 <h1 className='text-3xl text-center font-normal'>Garantimos a <span className='text-duri-medium'>otimização dos seus recursos</span> com a orientação<br />dos nossos especialistas</h1>
-                <button className="bg-duri-light rounded-full p-1 px-8 font-bold text-white hover:bg-duri-dark">
-                    Saiba Mais
-                </button>
+                <Link href={'/contato'}>
+                    <button className="bg-duri-light rounded-full p-1 px-8 font-bold text-white hover:bg-duri-dark">
+                        Saiba Mais
+                    </button>
+                </Link>
             </div>
         </section>
     );

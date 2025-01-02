@@ -19,13 +19,15 @@ const services = [
         icon: "/icons/certificado.svg",
         title: "Consultoria Tributária",
         content: "Descomplicamos a legislação tributária para sua empresa. Realizamos análises detalhadas do tratamento tributário e administrativo dos produtos com base no NCM/SH, otimizando sua carga fiscal e garantindo operações alinhadas às normas legais e administrativas.",
-        hasButton: true
+        hasButton: true,
+        buttonLink: "/consultoria-tributaria"
     },
     {
         icon: "/icons/porcentagem.svg",
         title: "Benefícios Fiscais",
         content: "Analisamos os dados da sua empresa e operações para identificar e aplicar os melhores benefícios fiscais disponíveis, como PRODEPE, PEAP 1, entre outros. Com isso, reduzimos custos de forma estratégica, assegurando total conformidade legal e aumentando sua competitividade no mercado.",
-        hasButton: true
+        hasButton: true,
+        buttonLink: "/beneficios-fiscais"
     },
     {
         icon: "/icons/sistema.svg",
@@ -55,7 +57,7 @@ const services = [
 
 const ServicesSection: React.FC = () => {
     return (
-        <div className='flex flex-col items-center'>
+        <div className='flex flex-col items-center px-40 py-16'>
             <div className="relative w-screen h-[40vh] overflow-x-hidden">
                 <Image
                     src="/sections/services.png"

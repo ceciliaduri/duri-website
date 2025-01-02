@@ -5,7 +5,7 @@ import { Card, CardContent } from '../ui/card';
 
 const AboutSection: React.FC = () => {
     return (
-        <div className='flex p-16 flex-col gap-16'>
+        <div className='flex py-16 px-40 flex-col gap-16'>
             <h1 className='text-3xl text-center'>
                 Nosso objetivo é importar e exportar de <span className='text-red-500'><br />forma simplificada</span>
             </h1>
