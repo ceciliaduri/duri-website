@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { Poppins } from 'next/font/google';
+import { Toaster } from "@/components/ui/toaster";
 
 export const metadata: Metadata = {
   title: "Duri Trading",
@@ -21,6 +22,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${poppins.className} w-screen h-screen overflow-x-hidden`}>
         {children}
+        <Toaster />
       </body>
     </html>
   );

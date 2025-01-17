@@ -11,7 +11,7 @@ export async function POST(req: Request) {
 
     try {
       await resend.emails.send({
-        from: 'Duri <duri@resend.dev>',
+        from: 'Duri <website@duri.com.br>',
         to: ['contato@duri.com.br'],
         subject: 'Novo Contato Recebido!',
         html: `
@@ -26,9 +26,7 @@ export async function POST(req: Request) {
       console.log('E-mail enviado com sucesso!');
       return NextResponse.json({ message: 'E-mail enviado com sucesso!' }, { status: 200 });
     } catch (error) {
-      if (error instanceof Error) {
-        console.error('Erro ao enviar e-mail:', error);
-      }
+      throw new Error('Erro ao enviar e-mail.');
     }
   } catch (error) {
     console.log('Erro ao enviar e-mail:', error);

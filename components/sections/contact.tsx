@@ -1,4 +1,5 @@
-'use client';
+'use client'
+import InputMask from "react-input-mask";
 import React from 'react';
 import { Card, CardContent } from '../ui/card';
 import Image from "next/image";
@@ -8,6 +9,7 @@ import { Input } from '../ui/input';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../ui/select';
 import { BriefcaseBusiness, File, DollarSign } from 'lucide-react';
 import { Controller, useForm } from 'react-hook-form';
+import { useToast } from '@/hooks/use-toast';
 
 interface ContactTypes {
     name: string;
@@ -19,8 +21,17 @@ interface ContactTypes {
 }
 
 
+
+const formatPhone = (value: string) => {
+    return value
+        .replace(/\D/g, '')
+        .replace(/(\d{2})(\d{5})(\d{4})/, '($1) $2-$3')
+        .replace(/(\(\d{2}\)\s\d{5})\-(\d{4})\d+/, '($1) $2');
+};
+
 const Contact: React.FC = () => {
-    const { register, handleSubmit, watch, setValue, control } = useForm({
+    const { toast } = useToast();
+    const { register, handleSubmit, watch, setValue, control, reset } = useForm({
         defaultValues: {
             name: '',
             company: '',
@@ -35,22 +46,26 @@ const Contact: React.FC = () => {
 
     const onSubmit = async (data: ContactTypes) => {
         try {
-            const response = await fetch('/api/send-email', {
+            await fetch('/api/send-email', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(data),
             });
 
-            if (response.ok) {
-                console.log("Enviado para api ", response)
-            } else {
-                const result = await response.json();
-                console.log('Erro ao enviar o formulário:', result);
-            }
+            console.log('E-mail enviado com sucesso!');
+            toast({
+                title: 'E-mail enviado com sucesso!',
+                description: 'Em breve entraremos em contato com você.',
+            })
+
+            reset()
         } catch (error) {
-            if (error instanceof Error) {
-                console.error('Erro ao enviar o formulário:', error);
-            }
+            console.log('Erro ao enviar e-mail:', error);
+            toast({
+                title: 'Erro ao enviar e-mail',
+                description: 'Tente novamente mais tarde.',
+                variant: 'destructive',
+            })
         }
     };
 
@@ -88,11 +103,19 @@ const Contact: React.FC = () => {
                                 </div>
                                 <div>
                                     <Label htmlFor="phone">Telefone *</Label>
-                                    <Input
-                                        id="phone"
-                                        {...register('phone', { required: true })}
-                                        className='border-[#777E90]'
-                                        required
+                                    <Controller
+                                        name="phone"
+                                        control={control}
+                                        rules={{ required: true }}
+                                        render={({ field: { value, onChange } }) => (
+                                            <Input
+                                                id="phone"
+                                                value={value}
+                                                onChange={(e) => onChange(formatPhone(e.target.value))}
+                                                className="border-[#777E90]"
+                                                required
+                                            />
+                                        )}
                                     />
                                 </div>
                                 <div>
