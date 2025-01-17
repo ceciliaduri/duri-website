@@ -7,9 +7,55 @@ import { Label } from '../ui/label';
 import { Input } from '../ui/input';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../ui/select';
 import { BriefcaseBusiness, File, DollarSign } from 'lucide-react';
+import { Controller, useForm } from 'react-hook-form';
+
+interface ContactTypes {
+    name: string;
+    company: string;
+    phone: string;
+    email: string;
+    service: string;
+    terms: boolean;
+}
 
 
 const Contact: React.FC = () => {
+    const { register, handleSubmit, watch, setValue, control } = useForm({
+        defaultValues: {
+            name: '',
+            company: '',
+            phone: '',
+            email: '',
+            service: '',
+            terms: false,
+        },
+    });
+
+    const termsAccepted = watch('terms');
+
+    const onSubmit = async (data: ContactTypes) => {
+        try {
+            const response = await fetch('/api/send-email', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data),
+            });
+
+            if (response.ok) {
+                console.log("Enviado para api ", response)
+            } else {
+                const result = await response.json();
+                console.log('Erro ao enviar o formulário:', result);
+            }
+        } catch (error) {
+            if (error instanceof Error) {
+                console.error('Erro ao enviar o formulário:', error);
+            }
+        }
+    };
+
+
+
     return (
         <div className='flex flex-col items-center mt-16 gap-16 p-16'>
             <div className='flex flex-col gap-16'>
@@ -19,65 +65,102 @@ const Contact: React.FC = () => {
                 <div className='flex items-center gap-16 w-full'>
                     <Card className='p-4 w-1/2'>
                         <CardContent>
-                            <form className="flex flex-col gap-4">
+                            <form className="flex flex-col gap-4" onSubmit={handleSubmit(onSubmit)}>
                                 <h3 className='text-duri-medium text-xl'>
                                     Preencha os campos que entraremos em contato!
                                 </h3>
                                 <div>
                                     <Label htmlFor="name">Nome Completo *</Label>
-                                    <Input id="name" className='border-[#777E90]' />
+                                    <Input
+                                        id="name"
+                                        {...register('name', { required: true })}
+                                        className='border-[#777E90]'
+                                        required
+                                    />
                                 </div>
                                 <div>
                                     <Label htmlFor="company">Nome da Empresa</Label>
-                                    <Input id="company" className='border-[#777E90]' />
+                                    <Input
+                                        id="company"
+                                        {...register('company')}
+                                        className='border-[#777E90]'
+                                    />
                                 </div>
                                 <div>
                                     <Label htmlFor="phone">Telefone *</Label>
-                                    <Input id="phone" className='border-[#777E90]' />
+                                    <Input
+                                        id="phone"
+                                        {...register('phone', { required: true })}
+                                        className='border-[#777E90]'
+                                        required
+                                    />
                                 </div>
                                 <div>
                                     <Label htmlFor="email">Email *</Label>
-                                    <Input id="email" className='border-[#777E90]' />
+                                    <Input
+                                        id="email"
+                                        {...register('email', { required: true })}
+                                        className='border-[#777E90]'
+                                        required
+                                    />
                                 </div>
                                 <div>
                                     <Label htmlFor="service">Serviço *</Label>
-                                    <Select>
-                                        <SelectTrigger className="w-full border-[#777E90]">
-                                            <SelectValue placeholder="Selecione um serviço" />
-                                        </SelectTrigger>
-                                        <SelectContent>
-                                            <SelectItem value="acessoria-comercio-exterior">
-                                                Assessoria em Comércio Exterior
-                                            </SelectItem>
-                                            <SelectItem value="beneficios-fiscais">
-                                                Benefícios Fiscais
-                                            </SelectItem>
-                                            <SelectItem value="consultoria-tributaria">
-                                                Consultoria Tributária
-                                            </SelectItem>
-                                            <SelectItem value="habilitacao-siscomex">
-                                                Habilitação no Siscomex e Revisão de Estimativas
-                                            </SelectItem>
-                                            <SelectItem value="importacao-por-terceiros">
-                                                Importação por Conta e Ordem de Terceiros
-                                            </SelectItem>
-                                            <SelectItem value="importacao-por-encomenda">
-                                                Importação por Encomenda
-                                            </SelectItem>
-                                            <SelectItem value="produtos-proprios">
-                                                Produtos Próprios
-                                            </SelectItem>
-                                        </SelectContent>
-                                    </Select>
+                                    <Controller
+                                        name="service"
+                                        control={control}
+                                        rules={{ required: true }}
+                                        render={({ field }) => (
+                                            <Select
+                                                onValueChange={field.onChange}
+                                                value={field.value}
+                                            >
+                                                <SelectTrigger className="w-full border-[#777E90]">
+                                                    <SelectValue placeholder="Selecione um serviço" />
+                                                </SelectTrigger>
+                                                <SelectContent>
+                                                    <SelectItem value="acessoria-comercio-exterior">
+                                                        Assessoria em Comércio Exterior
+                                                    </SelectItem>
+                                                    <SelectItem value="beneficios-fiscais">
+                                                        Benefícios Fiscais
+                                                    </SelectItem>
+                                                    <SelectItem value="consultoria-tributaria">
+                                                        Consultoria Tributária
+                                                    </SelectItem>
+                                                    <SelectItem value="habilitacao-siscomex">
+                                                        Habilitação no Siscomex e Revisão de Estimativas
+                                                    </SelectItem>
+                                                    <SelectItem value="importacao-por-terceiros">
+                                                        Importação por Conta e Ordem de Terceiros
+                                                    </SelectItem>
+                                                    <SelectItem value="importacao-por-encomenda">
+                                                        Importação por Encomenda
+                                                    </SelectItem>
+                                                    <SelectItem value="produtos-proprios">
+                                                        Produtos Próprios
+                                                    </SelectItem>
+                                                </SelectContent>
+                                            </Select>
+                                        )}
+                                    />
                                 </div>
                                 <div className="flex items-center space-x-2">
-                                    <Checkbox id="terms" />
+                                    <Checkbox
+                                        id="terms"
+                                        {...register('terms')}
+                                        onCheckedChange={(checked) => setValue('terms', !!checked)}
+                                    />
                                     <Label htmlFor="terms" className='text-sm text-[#777E90]'>
                                         Ao clicar nesse botão você concorda que a Duri Trading faça uso dessas
                                         informações colocadas acima, em concordancia com os termos gerais da LGPD.
                                     </Label>
                                 </div>
-                                <button className="bg-duri-light rounded-full p-1 px-8 text-white hover:bg-duri-dark w-1/3">
+                                <button
+                                    className="bg-duri-light rounded-full p-1 px-8 text-white hover:bg-duri-dark w-1/3 disabled:bg-gray-300"
+                                    type="submit"
+                                    disabled={!termsAccepted}
+                                >
                                     Enviar Informações
                                 </button>
                             </form>
