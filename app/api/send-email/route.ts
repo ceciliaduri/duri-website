@@ -26,7 +26,9 @@ export async function POST(req: Request) {
       console.log('E-mail enviado com sucesso!');
       return NextResponse.json({ message: 'E-mail enviado com sucesso!' }, { status: 200 });
     } catch (error) {
-      throw new Error('Erro ao enviar e-mail.');
+      if (error instanceof Error) {
+        throw new Error('Erro ao enviar e-mail.', error);
+      }
     }
   } catch (error) {
     console.log('Erro ao enviar e-mail:', error);
