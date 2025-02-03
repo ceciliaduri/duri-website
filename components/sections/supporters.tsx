@@ -6,7 +6,7 @@ import Link from 'next/link';
 const Supporters: React.FC = () => {
     return (
         <div className='flex flex-col p-16 items-center w-full gap-16'>
-            <Card className="w-full max-w-8xl shadow-lg mx-auto">
+            <Card className=" w-full max-w-4xl shadow-lg">
                 <CardContent className="flex flex-col items-center p-8">
                     <h1 className='font-bold text-2xl mb-4'>Vantagens de Contratar a <span className='text-duri-medium'>DURI</span></h1>
                     <div className='flex flex-col gap-2'>
@@ -59,7 +59,7 @@ const Supporters: React.FC = () => {
                 </CardContent>
             </Card>
             <div className='flex flex-col items-center align-center gap-8'>
-                <h1 className='text-3xl text-center font-normal'>Transformamos <span className='text-duri-medium'>Desafios em Oportunidades</span> Através de <br />Soluções de Comércio Exterior</h1>
+                <h1 className='text-3xl text-center  font-bold'>Transformamos <span className='text-duri-medium'>Desafios <br />em Oportunidades</span> Através de <br />Soluções de Comércio Exterior</h1>
                 <Link href={'/contato'}>
                     <button className="bg-duri-light rounded-full p-1 px-8 font-bold text-white hover:bg-duri-dark">
                         Conheça nosso Trabalho

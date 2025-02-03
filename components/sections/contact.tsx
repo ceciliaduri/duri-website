@@ -73,11 +73,11 @@ const Contact: React.FC = () => {
     return (
         <div className='flex flex-col items-center mt-16 gap-16 p-16'>
             <div className='flex flex-col gap-16'>
-                <h1 className='text-3xl text-center font-normal'>
-                    Somos seu Parceiro para Soluções <span className='text-duri-light'>Estratégicas e Integradas</span> <br />em Comércio Exterior
+                <h1 className='text-3xl text-center font-bold'>
+                    Somos seu Parceiro para Soluções <br /><span className='text-duri-light'>Estratégicas e Integradas</span> em <br />Comércio Exterior
                 </h1>
                 <div className='flex items-center gap-16 w-full'>
-                    <Card className='p-4 w-1/2'>
+                    <Card className='p-4 w-1/2 pt-8'>
                         <CardContent>
                             <form className="flex flex-col gap-4" onSubmit={handleSubmit(onSubmit)}>
                                 <h3 className='text-duri-medium text-xl'>
@@ -179,7 +179,7 @@ const Contact: React.FC = () => {
                                     </Label>
                                 </div>
                                 <button
-                                    className="bg-duri-light rounded-full p-1 px-8 text-white hover:bg-duri-dark w-1/3 disabled:bg-gray-300"
+                                    className="bg-duri-light rounded-full p-1 px-8 text-white hover:bg-duri-dark disabled:bg-gray-300"
                                     type="submit"
                                     disabled={!termsAccepted}
                                 >
@@ -207,7 +207,7 @@ const Contact: React.FC = () => {
                     />
                     <div className="absolute inset-0 bg-[#5C0508A6] bg-opacity-65"></div>
                     <div className="absolute inset-0 flex flex-col items-center justify-center text-white text-center px-4 w02">
-                        <h1 className="text-3xl">Contatos</h1>
+                        <h1 className="text-4xl font-bold">Contatos</h1>
                     </div>
                 </div>
             </div>

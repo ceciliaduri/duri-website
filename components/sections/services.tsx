@@ -68,7 +68,7 @@ const ServicesSection: React.FC = () => {
                 />
                 <div className="absolute inset-0 bg-[#5C0508A6] bg-opacity-65"></div>
                 <div className="absolute inset-0 flex flex-col items-center justify-center text-white text-center px-4 w02">
-                    <h1 className="text-3xl font-bold">Nossos Serviços</h1>
+                    <h1 className="text-4xl font-bold">Nossos Serviços</h1>
                     <h2 className="text-xl mt-2">Proporcionamos redução de custos, alta qualidade e eficiência</h2>
                 </div>
             </div>

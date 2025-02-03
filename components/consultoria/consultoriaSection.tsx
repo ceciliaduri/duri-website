@@ -71,7 +71,7 @@ const ConsultoriaSection: React.FC = () => {
                 </div>
             </div>
             <div className='flex flex-col items-center gap-8'>
-                <h1 className='text-3xl text-center font-normal'>Transforme a complexidade tributária em <br /><span className='text-duri-medium'>economia</span> real e operações <br /><span className='text-duri-medium'>mais eficientes</span></h1>
+                <h1 className='text-3xl text-center font-normal'>Transforme a complexidade tributária <br />em <span className='text-duri-medium'>economia</span> real e operações <br /><span className='text-duri-medium'>mais eficientes</span></h1>
                 <Link href={'/contato'}>
                     <button className="bg-duri-light rounded-full p-1 px-8 font-bold text-white hover:bg-duri-dark">
                         Saiba Mais

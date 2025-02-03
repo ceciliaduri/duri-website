@@ -6,8 +6,8 @@ import { Card, CardContent } from '../ui/card';
 const AboutSection: React.FC = () => {
     return (
         <div className='flex py-16 px-40 flex-col gap-16'>
-            <h1 className='text-3xl text-center'>
-                Nosso objetivo é importar e exportar de <span className='text-red-500'><br />forma simplificada</span>
+            <h1 className='text-3xl text-center font-bold'>
+                Nosso objetivo é <span className='text-red-500'>facilitar</span><br /> sua importação ou exportação
             </h1>
             <div className='grid grid-cols-2'>
                 <Image
@@ -29,13 +29,13 @@ const AboutSection: React.FC = () => {
                 </div>
             </div>
             <Card className="w-full max-w-8xl shadow-lg mx-auto">
-                <CardContent className="grid grid-cols-1 md:grid-cols-3 gap-8 p-6">
+                <CardContent className="grid grid-cols-1 md:grid-cols-3 gap-[10vw] p-6">
                     <div className="flex flex-col items-center text-center">
                         <div className="w-16 h-16 rounded-full bg-red-50 flex items-center justify-center mb-4">
                             <Settings className="w-8 h-8 text-duri-dark" />
                         </div>
-                        <h3 className="text-xl mb-2">Simplificação do Processo</h3>
-                        <p className="text-gray-600 2/3">
+                        <h3 className="text-xl mb-2 font-bold">Simplificação do Processo</h3>
+                        <p className="text-gray-600 text-justify">
                             Ficamos responsáveis por otimizar e resolver todo o processo burocrático e de documentação.
                         </p>
                     </div>
@@ -44,8 +44,8 @@ const AboutSection: React.FC = () => {
                         <div className="w-16 h-16 rounded-full bg-red-50 flex items-center justify-center mb-4">
                             <DollarSign className="w-8 h-8 text-duri-dark" />
                         </div>
-                        <h3 className="text-xl mb-2">Redução de Custos</h3>
-                        <p className="text-gray-600 2/3">
+                        <h3 className="text-xl mb-2 font-bold">Redução de Custos</h3>
+                        <p className="text-gray-600 text-justify">
                             Possuímos incentivos fiscais, que possibilitam a redução do ICMS devido na importação.
                         </p>
                     </div>
@@ -54,8 +54,8 @@ const AboutSection: React.FC = () => {
                         <div className="w-16 h-16 rounded-full bg-red-50 flex items-center justify-center mb-4">
                             <Handshake className="w-8 h-8 text-duri-dark" />
                         </div>
-                        <h3 className="text-xl mb-2">Facilidade de Negociação</h3>
-                        <p className="text-gray-600 2/3">
+                        <h3 className="text-xl mb-2 font-bold">Facilidade de Negociação</h3>
+                        <p className="text-gray-600 text-justify">
                             Fazemos a busca e negociação do produto que você necessita em diversos países do mundo
                         </p>
                     </div>
