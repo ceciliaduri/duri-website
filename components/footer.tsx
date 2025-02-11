@@ -7,7 +7,7 @@ const Footer: React.FC = () => {
     <footer className='bg-white flex items-center p-8'>
       {/* SOCIAIS */}
       <div className='flex flex-col items-center gap-4 pr-8'>
-        <a href="">
+        <a href="https://wa.me/5581994242112?text=Ol%C3%A1!%20Cheguei%20atrav%C3%A9s%20do%20site." target='__blank'>
           <Image src={'/social/whatsapp.svg'}
             width={26}
             height={26}

@@ -28,62 +28,70 @@ const AboutSection: React.FC = () => {
                     </div>
                 </div>
             </div>
-            <Card className="w-full max-w-8xl shadow-lg mx-auto">
-                <CardContent className="grid grid-cols-1 md:grid-cols-3 gap-[10vw] p-6">
-                    <div className="flex flex-col items-center text-center">
-                        <div className="w-16 h-16 rounded-full bg-red-50 flex items-center justify-center mb-4">
-                            <Settings className="w-8 h-8 text-duri-dark" />
-                        </div>
-                        <h3 className="text-xl mb-2 font-bold">Simplificação do Processo</h3>
-                        <p className="text-gray-600 text-justify">
-                            Ficamos responsáveis por otimizar e resolver todo o processo burocrático e de documentação.
-                        </p>
-                    </div>
 
-                    <div className="flex flex-col items-center text-center">
-                        <div className="w-16 h-16 rounded-full bg-red-50 flex items-center justify-center mb-4">
-                            <DollarSign className="w-8 h-8 text-duri-dark" />
+            {/* Cards centralizados dentro de suas próprias divs */}
+            <div className="flex justify-center">
+                <Card className="w-full max-w-8xl shadow-lg">
+                    <CardContent className="grid grid-cols-1 md:grid-cols-3 gap-[8vw] p-10 justify-items-center">
+                        <div className="flex flex-col items-center text-center w-72">
+                            <div className="w-16 h-16 rounded-full bg-red-50 flex items-center justify-center mb-4">
+                                <Settings className="w-8 h-8 text-duri-dark" />
+                            </div>
+                            <h3 className="text-xl mb-2 font-bold">Simplificação do Processo</h3>
+                            <p className="text-gray-600">
+                                Ficamos responsáveis por otimizar e resolver todo o processo burocrático e de documentação.
+                            </p>
                         </div>
-                        <h3 className="text-xl mb-2 font-bold">Redução de Custos</h3>
-                        <p className="text-gray-600 text-justify">
-                            Possuímos incentivos fiscais, que possibilitam a redução do ICMS devido na importação.
-                        </p>
-                    </div>
 
-                    <div className="flex flex-col items-center text-center">
-                        <div className="w-16 h-16 rounded-full bg-red-50 flex items-center justify-center mb-4">
-                            <Handshake className="w-8 h-8 text-duri-dark" />
+                        <div className="flex flex-col items-center text-center w-72">
+                            <div className="w-16 h-16 rounded-full bg-red-50 flex items-center justify-center mb-4">
+                                <DollarSign className="w-8 h-8 text-duri-dark" />
+                            </div>
+                            <h3 className="text-xl mb-2 font-bold">Redução de Custos</h3>
+                            <p className="text-gray-600">
+                                Possuímos incentivos fiscais, que possibilitam a redução do ICMS devido na importação.
+                            </p>
                         </div>
-                        <h3 className="text-xl mb-2 font-bold">Facilidade de Negociação</h3>
-                        <p className="text-gray-600 text-justify">
-                            Fazemos a busca e negociação do produto que você necessita em diversos países do mundo
-                        </p>
-                    </div>
-                </CardContent>
-            </Card>
-            <Card
-                style={{
-                    backgroundImage: 'url(/comex/comexBackground.png)',
-                    backgroundSize: 'cover',
-                    backgroundRepeat: 'no-repeat',
-                    backgroundPosition: 'center',
-                }}
-                className="w-full max-w-8xl shadow-lg mx-auto"
-            >
-                <CardContent className="p-8 flex items-center justify-around text-white">
-                    <div className="text-4xl">
-                        Eleita Duas Vezes a Trading <span className='font-bold'>Mais <br />
-                            Recomendada</span> de Pernambuco
-                    </div>
-                    <Image
-                        src={'/comex/comexLogo.png'}
-                        alt="Logomarca Comex Pernambuco"
-                        width={340}
-                        height={160}
-                    />
-                </CardContent>
-            </Card>
-            <div className='flex justify-around'>
+
+                        <div className="flex flex-col items-center text-center w-72">
+                            <div className="w-16 h-16 rounded-full bg-red-50 flex items-center justify-center mb-4">
+                                <Handshake className="w-8 h-8 text-duri-dark" />
+                            </div>
+                            <h3 className="text-xl mb-2 font-bold">Facilidade de Negociação</h3>
+                            <p className="text-gray-600">
+                                Fazemos a busca e negociação do produto que você necessita em diversos países do mundo.
+                            </p>
+                        </div>
+                    </CardContent>
+                </Card>
+            </div>
+
+            <div className="flex justify-center">
+                <Card
+                    style={{
+                        backgroundImage: 'url(/comex/comexBackground.png)',
+                        backgroundSize: 'cover',
+                        backgroundRepeat: 'no-repeat',
+                        backgroundPosition: 'center',
+                    }}
+                    className="w-full max-w-8xl shadow-lg"
+                >
+                    <CardContent className="p-8 flex flex-col items-center text-white text-center">
+                        <div className="text-4xl">
+                            Eleita Duas Vezes a Trading <span className='font-bold'>Mais <br />
+                                Recomendada</span> de Pernambuco
+                        </div>
+                        <Image
+                            src={'/comex/comexLogo.png'}
+                            alt="Logomarca Comex Pernambuco"
+                            width={340}
+                            height={160}
+                        />
+                    </CardContent>
+                </Card>
+            </div>
+
+            <div className='flex justify-center gap-16'>
                 <div className='flex items-center flex-col gap-1'>
                     <Image
                         src={'/comex/comex1.png'}
@@ -102,7 +110,6 @@ const AboutSection: React.FC = () => {
                     />
                     <p>Destaques COMEX 2024</p>
                 </div>
-
             </div>
         </div>
     );

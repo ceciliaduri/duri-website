@@ -6,12 +6,17 @@ import { Toaster } from "@/components/ui/toaster";
 export const metadata: Metadata = {
   title: "Duri Trading",
   description: "",
+  icons: {
+    icon: "/favicon.ico",
+  }
 };
 
 const poppins = Poppins({
   subsets: ['latin'],
   weight: ['400', '500', '700'],
 });
+
+
 
 export default function RootLayout({
   children,

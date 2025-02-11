@@ -42,10 +42,10 @@ const BenefitsSection: React.FC = () => {
                 </Card>
             </div>
             <div className='flex flex-col items-center gap-8'>
-                <h1 className='text-3xl text-center font-normal'>Garantimos a <span className='text-duri-medium'>otimização dos seus recursos</span> com a orientação<br />dos nossos especialistas</h1>
+                <h1 className='text-3xl text-center font-bold'>Garantimos a <span className='text-duri-medium'>otimização dos <br />seus recursos</span> com a orientação<br />dos nossos especialistas</h1>
                 <Link href={'/contato'}>
                     <button className="bg-duri-light rounded-full p-1 px-8 font-bold text-white hover:bg-duri-dark">
-                        Saiba Mais
+                        Fale Conosco
                     </button>
                 </Link>
             </div>
