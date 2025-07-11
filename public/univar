@@ -1,0 +1,1004 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Follow-Up Univar</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #4a90e2 100%);
+            min-height: 100vh;
+            padding: 15px;
+            color: #333;
+        }
+
+        .dashboard-container {
+            max-width: 1600px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.98);
+            border-radius: 20px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+            padding: 30px;
+            backdrop-filter: blur(10px);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 35px;
+            padding: 25px;
+            background: linear-gradient(135deg, #f36c0f 0%, #404040 100%);
+            border-radius: 15px;
+            color: white;
+        }
+
+        .header h1 {
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+            font-weight: 800;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .controls-section {
+            background: #F0F1F1;
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            border: 2px solid #e2e8f0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .controls-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            align-items: center;
+        }
+
+        .control-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .control-group label {
+            font-weight: 700;
+            color: #4a5568;
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .control-group select {
+            padding: 12px 15px;
+            border: 2px solid #e2e8f0;
+            border-radius: 10px;
+            background: white;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .control-group select:focus {
+            outline: none;
+            border-color: #f36c0f;
+            box-shadow: 0 0 0 3px rgba(243, 108, 15, 0.1);
+            transform: translateY(-1px);
+        }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .metric-card {
+            background: linear-gradient(135deg, #f36c0f 0%, #404040 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 15px 35px rgba(243, 108, 15, 0.3);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .metric-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.1) 50%, transparent 70%);
+            transform: translateX(-100%);
+            transition: transform 0.6s;
+        }
+
+        .metric-card:hover::before {
+            transform: translateX(100%);
+        }
+
+        .metric-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(243, 108, 15, 0.4);
+        }
+
+        .metric-card .icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            opacity: 0.9;
+        }
+
+        .metric-card .value {
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin-bottom: 8px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .metric-card .label {
+            font-size: 1.1rem;
+            opacity: 0.95;
+            font-weight: 600;
+        }
+
+        .metric-card .trend {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 1.2rem;
+        }
+
+        .status-overview {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .status-card {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            border-left: 5px solid;
+            transition: all 0.3s ease;
+        }
+
+        .status-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+        }
+
+        .status-embarcar { border-left-color: #FFB572; }
+        .status-transito { border-left-color: #f36c0f; }
+        .status-porto { border-left-color: #404040; }
+        .status-fechamento { border-left-color: #F0F1F1; }
+        .status-cancelado { border-left-color: #dc2626; }
+
+        .status-card h3 {
+            color: #2d3748;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        .status-card .count {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 5px;
+        }
+
+        .status-card .description {
+            color: #718096;
+            font-size: 0.9rem;
+        }
+
+        .charts-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .chart-container {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            border: 2px solid #e2e8f0;
+            transition: all 0.3s ease;
+        }
+
+        .chart-container:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.15);
+        }
+
+        .chart-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #2d3748;
+            margin-bottom: 25px;
+            text-align: center;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #f36c0f;
+        }
+
+        .data-table-section {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            border: 2px solid #e2e8f0;
+            margin-bottom: 30px;
+        }
+
+        .table-header {
+            background: linear-gradient(135deg, #f36c0f 0%, #404040 100%);
+            color: white;
+            padding: 25px;
+            font-size: 1.4rem;
+            font-weight: 700;
+        }
+
+        .table-controls {
+            padding: 20px;
+            background: #F0F1F1;
+            border-bottom: 1px solid #e2e8f0;
+            display: flex;
+            gap: 15px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .search-box {
+            flex: 1;
+            min-width: 250px;
+            padding: 12px 15px;
+            border: 2px solid #e2e8f0;
+            border-radius: 10px;
+            font-size: 0.95rem;
+        }
+
+        .search-box:focus {
+            outline: none;
+            border-color: #f36c0f;
+        }
+
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.85rem;
+        }
+
+        .data-table th,
+        .data-table td {
+            padding: 12px 8px;
+            text-align: left;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .data-table th {
+            background: #F0F1F1;
+            font-weight: 700;
+            color: #4a5568;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            position: sticky;
+            top: 0;
+        }
+
+        .data-table tbody tr:hover {
+            background: #F0F1F1;
+        }
+
+        .status-badge {
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+            white-space: nowrap;
+        }
+
+        .status-a-embarcar { background: #FFB572; color: #404040; font-weight: 700; }
+        .status-em-transito { background: #f36c0f; color: white; font-weight: 700; }
+        .status-no-porto { background: #404040; color: white; font-weight: 700; }
+        .status-em-fechamento { background: #F0F1F1; color: #404040; font-weight: 700; }
+        .status-cancelado { background: #dc2626; color: white; font-weight: 800; }
+
+        .li-badge {
+            padding: 4px 10px;
+            border-radius: 15px;
+            font-size: 0.75rem;
+            font-weight: 700;
+        }
+
+        .li-anvisa { background: #f36c0f; color: white; }
+        .li-anp { background: #FFB572; color: #404040; }
+        .li-sem { background: #F0F1F1; color: #404040; }
+        .li-semli { background: #F0F1F1; color: #404040; }
+
+        .action-buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 25px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 12px 25px;
+            border: none;
+            border-radius: 10px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-primary {
+            background: #4f46e5;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #4338ca;
+            transform: translateY(-2px);
+        }
+
+        .btn-success {
+            background: #059669;
+            color: white;
+        }
+
+        .btn-success:hover {
+            background: #047857;
+            transform: translateY(-2px);
+        }
+
+        .btn-warning {
+            background: #d97706;
+            color: white;
+        }
+
+        .btn-warning:hover {
+            background: #b45309;
+            transform: translateY(-2px);
+        }
+
+        .summary-section {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .summary-item {
+            text-align: center;
+            padding: 15px;
+            border-radius: 10px;
+            background: #F0F1F1;
+        }
+
+        .summary-value {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #f36c0f;
+            margin-bottom: 5px;
+        }
+
+        .summary-label {
+            color: #4a5568;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .dashboard-container {
+                padding: 20px;
+            }
+            
+            .header h1 {
+                font-size: 2.2rem;
+            }
+            
+            .charts-section {
+                grid-template-columns: 1fr;
+            }
+            
+            .metrics-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            }
+            
+            .controls-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .data-table {
+                font-size: 0.75rem;
+            }
+            
+            .data-table th,
+            .data-table td {
+                padding: 8px 6px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard-container">
+        <div class="header">
+            <h1>Dashboard Follow-Up Univar</h1>
+            <p>Monitoramento em Tempo Real • 13 Operações Ativas • Atualizado em 11/07/2025</p>
+        </div>
+
+        <div class="controls-section">
+            <div class="controls-grid">
+                <div class="control-group">
+                    <label for="refFilter">REF</label>
+                    <select id="refFilter">
+                        <option value="all">Todas as REF</option>
+                        <option value="620°">620° - SINOSWEET</option>
+                        <option value="647°">647° - WANHUA</option>
+                        <option value="648°">648° - DOW</option>
+                        <option value="651°">651° - NEIMENGGU</option>
+                        <option value="652°">652° - NEIMENGGU</option>
+                        <option value="654°">654° - IMS</option>
+                        <option value="655°">655° - DOW (Cancelado)</option>
+                        <option value="656°">656° - TOTALENERGIES</option>
+                        <option value="657°">657° - TOTALENERGIES</option>
+                        <option value="658°">658° - SHANDONG</option>
+                        <option value="659°">659° - SHANDONG</option>
+                        <option value="660°">660° - WANHUA</option>
+                        <option value="661°">661° - WANHUA</option>
+                    </select>
+                </div>
+                <div class="control-group">
+                    <label for="statusFilter">Status</label>
+                    <select id="statusFilter">
+                        <option value="all">Todos os Status</option>
+                        <option value="A Embarcar">A Embarcar (7)</option>
+                        <option value="Em Trânsito">Em Trânsito (2)</option>
+                        <option value="No Porto">No Porto (1)</option>
+                        <option value="Em Fechamento">Em Fechamento (2)</option>
+                        <option value="Cancelado">Cancelado (1)</option>
+                    </select>
+                </div>
+                <div class="control-group">
+                    <label for="exportadorFilter">Exportador</label>
+                    <select id="exportadorFilter">
+                        <option value="all">Todos Exportadores</option>
+                        <option value="WANHUA">WANHUA CHEMICAL (3)</option>
+                        <option value="NEIMENGGU">NEIMENGGU FUFENG (2)</option>
+                        <option value="DOW">DOW CHEMICAL (2)</option>
+                        <option value="TOTALENERGIES">TOTALENERGIES (2)</option>
+                        <option value="SHANDONG">SHANDONG LUWEI (2)</option>
+                    </select>
+                </div>
+                <div class="control-group">
+                    <label for="produtoFilter">Produto</label>
+                    <select id="produtoFilter">
+                        <option value="all">Todos Produtos</option>
+                        <option value="GOMA XANTANA">GOMA XANTANA (2)</option>
+                        <option value="TERGITOL NP 9">TERGITOL NP 9 (2)</option>
+                        <option value="ÁCIDO ASCÓRBICO">ÁCIDO ASCÓRBICO (2)</option>
+                        <option value="TDI 80/20">TDI 80/20 (2)</option>
+                    </select>
+                </div>
+                <div class="control-group">
+                    <label for="liFilter">Órgão Anuente</label>
+                    <select id="liFilter">
+                        <option value="all">Todos Órgãos</option>
+                        <option value="ANVISA">ANVISA (5)</option>
+                        <option value="SEM LI">SEM LI (6)</option>
+                        <option value="ANP">ANP (2)</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="metrics-grid">
+            <div class="metric-card">
+                <div class="trend">↗</div>
+                <div class="icon">■</div>
+                <div class="value" id="totalOps">13</div>
+                <div class="label">Total de Operações</div>
+            </div>
+            <div class="metric-card">
+                <div class="trend">✓</div>
+                <div class="icon">●</div>
+                <div class="value" id="efetividade">92%</div>
+                <div class="label">Taxa de Efetividade</div>
+            </div>
+            <div class="metric-card">
+                <div class="trend">□</div>
+                <div class="icon">▣</div>
+                <div class="value" id="totalContainers">24</div>
+                <div class="label">Total de Containers</div>
+            </div>
+            <div class="metric-card">
+                <div class="trend">$</div>
+                <div class="icon">◆</div>
+                <div class="value" id="comAdiantamento">6</div>
+                <div class="label">Com Adiantamento</div>
+            </div>
+            <div class="metric-card">
+                <div class="trend">▲</div>
+                <div class="icon">●</div>
+                <div class="value" id="ativasCount">12</div>
+                <div class="label">Operações Ativas</div>
+            </div>
+            <div class="metric-card">
+                <div class="trend">▼</div>
+                <div class="icon">▪</div>
+                <div class="value" id="proximosEmbarques">5</div>
+                <div class="label">Embarques Jul/25</div>
+            </div>
+        </div>
+
+        <div class="status-overview">
+            <div class="status-card status-embarcar">
+                <h3>A Embarcar</h3>
+                <div class="count" style="color: #f36c0f;">7</div>
+                <div class="description">Aguardando documentação e booking</div>
+            </div>
+            <div class="status-card status-transito">
+                <h3>Em Trânsito</h3>
+                <div class="count" style="color: #f36c0f;">2</div>
+                <div class="description">Cargas navegando para o Brasil</div>
+            </div>
+            <div class="status-card status-porto">
+                <h3>No Porto</h3>
+                <div class="count" style="color: #404040;">1</div>
+                <div class="description">Aguardando desembaraço</div>
+            </div>
+            <div class="status-card status-fechamento">
+                <h3>Em Fechamento</h3>
+                <div class="count" style="color: #404040;">2</div>
+                <div class="description">Finalizando documentação</div>
+            </div>
+            <div class="status-card status-cancelado">
+                <h3>Cancelado</h3>
+                <div class="count" style="color: #dc2626;">1</div>
+                <div class="description">Processo cancelado</div>
+            </div>
+        </div>
+
+        <div class="summary-section">
+            <h3 style="margin-bottom: 20px; color: #2d3748; font-size: 1.3rem;">Resumo Operacional</h3>
+            <div class="summary-grid">
+                <div class="summary-item">
+                    <div class="summary-value">5</div>
+                    <div class="summary-label">Operações ANVISA</div>
+                </div>
+                <div class="summary-item">
+                    <div class="summary-value">4</div>
+                    <div class="summary-label">Armadores Diferentes</div>
+                </div>
+                <div class="summary-item">
+                    <div class="summary-value">100%</div>
+                    <div class="summary-label">Terminal TECON</div>
+                </div>
+                <div class="summary-item">
+                    <div class="summary-value">3</div>
+                    <div class="summary-label">Maior Fornecedor (WANHUA)</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="charts-section">
+            <div class="chart-container">
+                <div class="chart-title">Distribuição por Status</div>
+                <canvas id="statusChart"></canvas>
+            </div>
+            <div class="chart-container">
+                <div class="chart-title">Top Exportadores</div>
+                <canvas id="exportadorChart"></canvas>
+            </div>
+            <div class="chart-container">
+                <div class="chart-title">Produtos Principais</div>
+                <canvas id="produtoChart"></canvas>
+            </div>
+            <div class="chart-container">
+                <div class="chart-title">Órgãos Anuentes</div>
+                <canvas id="orgaoChart"></canvas>
+            </div>
+            <div class="chart-container">
+                <div class="chart-title">Armadores</div>
+                <canvas id="armadorChart"></canvas>
+            </div>
+            <div class="chart-container">
+                <div class="chart-title">Cronograma ETD</div>
+                <canvas id="cronogramaChart"></canvas>
+            </div>
+        </div>
+
+        <div class="data-table-section">
+            <div class="table-header">
+                Detalhamento Completo das Operações Univar
+            </div>
+            <div class="table-controls">
+                <input type="text" class="search-box" id="searchInput" placeholder="Buscar por processo, produto, exportador...">
+                <select id="statusTableFilter">
+                    <option value="">Filtrar por status</option>
+                    <option value="A Embarcar">A Embarcar</option>
+                    <option value="Em Trânsito">Em Trânsito</option>
+                    <option value="No Porto">No Porto</option>
+                    <option value="Em Fechamento">Em Fechamento</option>
+                    <option value="Cancelado">Cancelado</option>
+                </select>
+            </div>
+            <div style="overflow-x: auto; max-height: 600px;">
+                <table class="data-table" id="operationsTable">
+                    <thead>
+                        <tr>
+                            <th>Ref</th>
+                            <th>Processo</th>
+                            <th>Status</th>
+                            <th>Produto</th>
+                            <th>Exportador</th>
+                            <th>ETD</th>
+                            <th>ETA</th>
+                            <th>Qtd</th>
+                            <th>LI</th>
+                            <th>Navio</th>
+                            <th>Armador</th>
+                            <th>Containers</th>
+                            <th>Observações</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tableBody">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Dados reais da Univar processados
+        const univarOperations = [
+            {
+                ref: "652°", processo: "4527510654", status: "A Embarcar", produto: "GOMA XANTANA",
+                exportador: "NEIMENGGU FUFENG BIOTECHNOLOGIES CO", etd: "2025-09-20", eta: "2025-12-04",
+                quantidade: "26.000,00", li: "ANVISA", navio: "XXXXXXXXX", armador: "XXXX", qtd_cntr: "1",
+                observacoes: "Aguardando envio dos drafts, booking."
+            },
+            {
+                ref: "655°", processo: "4527590942", status: "Cancelado", produto: "TERGITOL NP 9",
+                exportador: "DOW CHEMICAL CO", etd: "2025-07-10", eta: "2025-09-11",
+                quantidade: "17.055,00", li: "SEM LI", navio: "XXXXXXXXX", armador: "XXXX", qtd_cntr: "1",
+                observacoes: "02/07 - PEDIDO CANCELADO"
+            },
+            {
+                ref: "656°", processo: "4527595910", status: "A Embarcar", produto: "VIBE 55",
+                exportador: "TOTALENERGIES ADDITIVES AND FUELS", etd: "2025-10-23", eta: "2025-12-16",
+                quantidade: "14.800,00", li: "ANP", navio: "XXXXXXXXX", armador: "XXXX", qtd_cntr: "1",
+                observacoes: "Aguardando envio dos drafts, booking."
+            },
+            {
+                ref: "657°", processo: "4527595952", status: "A Embarcar", produto: "VIBE 56",
+                exportador: "TOTALENERGIES ADDITIVES AND FUELS", etd: "2025-12-15", eta: "2026-02-08",
+                quantidade: "14.800,00", li: "ANP", navio: "XXXXXXXXX", armador: "XXXX", qtd_cntr: "1",
+                observacoes: "Aguardando envio dos drafts, booking."
+            },
+            {
+                ref: "658°", processo: "4527653470", status: "A Embarcar", produto: "ÁCIDO ASCÓRBICO",
+                exportador: "SHANDONG LUWEI PHARMACEUTICAL CO.", etd: "2025-07-06", eta: "2025-08-08",
+                quantidade: "18.000,00", li: "ANVISA", navio: "XXXXXXXXX", armador: "XXXX", qtd_cntr: "1",
+                observacoes: "MSC cancelou booking. Reprogramado para 06/07."
+            },
+            {
+                ref: "659°", processo: "4527653547", status: "A Embarcar", produto: "ÁCIDO ASCÓRBICO",
+                exportador: "SHANDONG LUWEI PHARMACEUTICAL CO.", etd: "2025-07-06", eta: "2025-09-05",
+                quantidade: "18.001,00", li: "ANVISA", navio: "XXXXXXXXX", armador: "XXXX", qtd_cntr: "1",
+                observacoes: "MSC cancelou booking. Reprogramado para 06/07."
+            },
+            {
+                ref: "660°", processo: "4527659416", status: "A Embarcar", produto: "TDI 80/20",
+                exportador: "WANHUA CHEMICAL", etd: "2025-07-15", eta: "2025-09-16",
+                quantidade: "80.000,00", li: "SEM LI", navio: "XXXXXXXXX", armador: "XXXX", qtd_cntr: "4",
+                observacoes: "Aguardando envio dos drafts, booking."
+            },
+            {
+                ref: "661°", processo: "4527659420", status: "A Embarcar", produto: "TDI 80/20",
+                exportador: "WANHUA CHEMICAL", etd: "2025-07-15", eta: "2025-09-16",
+                quantidade: "80.000,00", li: "SEM LI", navio: "XXXXXXXXX", armador: "XXXX", qtd_cntr: "4",
+                observacoes: "Aguardando envio dos drafts, booking."
+            },
+            {
+                ref: "651°", processo: "4527510642", status: "Em Trânsito", produto: "GOMA XANTANA",
+                exportador: "NEIMENGGU FUFENG BIOTECHNOLOGIES CO", etd: "2025-05-25", eta: "2025-08-08",
+                quantidade: "26.000,00", li: "ANVISA", navio: "CMA CGM VERACRUZ", armador: "CMA CGM", qtd_cntr: "1",
+                observacoes: "LI DEFERIDA. Docs coletados pela Concex."
+            },
+            {
+                ref: "620°", processo: "4527039947", status: "Em Trânsito", produto: "ASPARTAME POWDER",
+                exportador: "SINOSWEET", etd: "2025-06-22", eta: "2025-09-18",
+                quantidade: "18.000,00", li: "ANVISA", navio: "CMA CGM SANTOS", armador: "CMA CGM", qtd_cntr: "1",
+                observacoes: "LI DEFERIDA. Docs chegaram na Duri."
+            },
+            {
+                ref: "654°", processo: "4527584290", status: "No Porto", produto: "TDI 80/21",
+                exportador: "IMS CORPORATION", etd: "2025-05-31", eta: "2025-07-22",
+                quantidade: "80.000,00", li: "SEM LI", navio: "MSC URSULA", armador: "MSC", qtd_cntr: "4",
+                observacoes: "DI desembaraçada. Aguardando liberação do armador."
+            },
+            {
+                ref: "648°", processo: "4527462888", status: "Em Fechamento", produto: "TERGITOL NP 9",
+                exportador: "DOW CHEMICAL CO", etd: "2025-06-13", eta: "2025-07-20",
+                quantidade: "17.055,00", li: "SEM LI", navio: "LE HOUVRE EXPRESS", armador: "HAPAG", qtd_cntr: "1",
+                observacoes: "PREV. DE ENVIO DO FECHAMENTO PELA DURI."
+            },
+            {
+                ref: "647°", processo: "4527427434", status: "Em Fechamento", produto: "WANOL F3148",
+                exportador: "WANHUA CHEMICAL", etd: "2025-03-04", eta: "2025-07-05",
+                quantidade: "63.000,00", li: "SEM LI", navio: "PEDRO ÁLVARES CABRAL", armador: "MAERSK", qtd_cntr: "3",
+                observacoes: "PREV. DE ENVIO DO FECHAMENTO PELA DURI."
+            }
+        ];
+
+        let filteredOperations = [...univarOperations];
+
+        function createCharts() {
+            createStatusChart();
+            createExportadorChart();
+            createProdutoChart();
+            createOrgaoChart();
+            createArmadorChart();
+            createCronogramaChart();
+        }
+
+        function createStatusChart() {
+            const ctx = document.getElementById('statusChart').getContext('2d');
+            const statusData = {
+                'A Embarcar': 7,
+                'Em Trânsito': 2,
+                'No Porto': 1,
+                'Em Fechamento': 2,
+                'Cancelado': 1
+            };
+
+            new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: Object.keys(statusData),
+                    datasets: [{
+                        data: Object.values(statusData),
+                        backgroundColor: ['#FFB572', '#f36c0f', '#404040', '#F0F1F1', '#dc2626'],
+                        borderWidth: 0
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: { position: 'bottom' }
+                    }
+                }
+            });
+        }
+
+        function createExportadorChart() {
+            const ctx = document.getElementById('exportadorChart').getContext('2d');
+            
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['WANHUA', 'NEIMENGGU', 'DOW', 'TOTALENERGIES', 'SHANDONG'],
+                    datasets: [{
+                        label: 'Operações',
+                        data: [3, 2, 2, 2, 2],
+                        backgroundColor: '#404040',
+                        borderRadius: 8
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: { legend: { display: false } },
+                    scales: {
+                        y: { beginAtZero: true, ticks: { stepSize: 1 } }
+                    }
+                }
+            });
+        }
+
+        function createProdutoChart() {
+            const ctx = document.getElementById('produtoChart').getContext('2d');
+            
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['GOMA XANTANA', 'TERGITOL NP 9', 'ÁCIDO ASCÓRBICO', 'TDI 80/20', 'VIBE 55', 'VIBE 56', 'ASPARTAME', 'TDI 80/21', 'WANOL F3148'],
+                    datasets: [{
+                        label: 'Operações',
+                        data: [2, 2, 2, 2, 1, 1, 1, 1, 1],
+                        backgroundColor: '#f36c0f',
+                        borderRadius: 8
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: { legend: { display: false } },
+                    scales: {
+                        y: { beginAtZero: true, ticks: { stepSize: 1 } },
+                        x: { 
+                            ticks: { 
+                                maxRotation: 45,
+                                minRotation: 45 
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        function createOrgaoChart() {
+            const ctx = document.getElementById('orgaoChart').getContext('2d');
+            
+            new Chart(ctx, {
+                type: 'pie',
+                data: {
+                    labels: ['SEM LI', 'ANVISA', 'ANP'],
+                    datasets: [{
+                        data: [6, 5, 2],
+                        backgroundColor: ['#404040', '#f36c0f', '#FFB572'],
+                        borderWidth: 0
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: { legend: { position: 'bottom' } }
+                }
+            });
+        }
+
+        function createArmadorChart() {
+            const ctx = document.getElementById('armadorChart').getContext('2d');
+            
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['CMA CGM', 'MSC', 'HAPAG', 'MAERSK'],
+                    datasets: [{
+                        label: 'Operações',
+                        data: [2, 1, 1, 1],
+                        backgroundColor: '#FFB572',
+                        borderRadius: 8
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    indexAxis: 'y',
+                    plugins: { legend: { display: false } },
+                    scales: {
+                        x: { beginAtZero: true, ticks: { stepSize: 1 } }
+                    }
+                }
+            });
+        }
+
+        function createCronogramaChart() {
+            const ctx = document.getElementById('cronogramaChart').getContext('2d');
+            
+            new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: ['Mar/25', 'Mai/25', 'Jun/25', 'Jul/25', 'Set/25', 'Out/25', 'Dez/25'],
+                    datasets: [{
+                        label: 'ETD Programados',
+                        data: [1, 2, 2, 5, 1, 1, 1],
+                        borderColor: '#f36c0f',
+                        backgroundColor: 'rgba(243, 108, 15, 0.1)',
+                        tension: 0.4,
+                        fill: true
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: { legend: { display: false } },
+                    scales: {
+                        y: { beginAtZero: true, ticks: { stepSize: 1 } }
+                    }
+                }
+            });
+        }
+
+        function populateTable() {
+            const tbody = document.getElementById('tableBody');
+            tbody.innerHTML = '';
+
+            filteredOperations.forEach(op => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td><strong>${op.ref}</strong></td>
+                    <td>${op.processo}</td>
+                    <td><span class="status-badge status-${op.status.toLowerCase().replace(' ', '-')}">${op.status}</span></td>
+                    <td>${op.produto}</td>
+                    <td>${op.exportador.split(' ')[0]}</td>
+                    <td>${op.etd}</td>
+                    <td>${op.eta}</td>
+                    <td>${op.quantidade}</td>
+                    <td><span class="li-badge li-${op.li.toLowerCase().replace(' ', '')}">${op.li}</span></td>
+                    <td>${op.navio}</td>
+                    <td>${op.armador}</td>
+                    <td>${op.qtd_cntr}</td>
+                    <td style="max-width: 200px; overflow: hidden; text-overflow: ellipsis;">${op.observacoes}</td>
+                `;
+                tbody.appendChild(row);
+            });
+        }
+
+        function applyFilters() {
+            const refFilter = document.getElementById('refFilter').value;
+            const statusFilter = document.getElementById('statusFilter').value;
+            const exportadorFilter = document.getElementById('exportadorFilter').value;
+            const produtoFilter = document.getElementById('produtoFilter').value;
+            const liFilter = document.getElementById('liFilter').value;
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+
+            filteredOperations = univarOperations.filter(op => {
+                if (refFilter !== 'all' && op.ref !== refFilter) return false;
+                if (statusFilter !== 'all' && op.status !== statusFilter) return false;
+                if (exportadorFilter !== 'all' && !op.exportador.includes(exportadorFilter)) return false;
+                if (produtoFilter !== 'all' && op.produto !== produtoFilter) return false;
+                if (liFilter !== 'all' && op.li !== liFilter) return false;
+                if (searchTerm && !Object.values(op).some(value => 
+                    String(value).toLowerCase().includes(searchTerm))) return false;
+                
+                return true;
+            });
+
+            populateTable();
+            updateMetrics();
+        }
+
+        function updateMetrics() {
+            const total = filteredOperations.length;
+            const ativas = filteredOperations.filter(op => op.status !== 'Cancelado').length;
+            const containers = filteredOperations.reduce((sum, op) => sum + parseInt(op.qtd_cntr), 0);
+            
+            document.getElementById('totalOps').textContent = total;
+            document.getElementById('ativasCount').textContent = ativas;
+            document.getElementById('totalContainers').textContent = containers;
+        }
+
+        // Event listeners
+        document.addEventListener('DOMContentLoaded', function() {
+            createCharts();
+            populateTable();
+
+            ['refFilter', 'statusFilter', 'exportadorFilter', 'produtoFilter', 'liFilter'].forEach(id => {
+                document.getElementById(id).addEventListener('change', applyFilters);
+            });
+
+            document.getElementById('searchInput').addEventListener('input', applyFilters);
+            document.getElementById('statusTableFilter').addEventListener('change', applyFilters);
+        });
+    </script>
+</body>
+</html>
