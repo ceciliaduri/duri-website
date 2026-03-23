@@ -37,7 +37,7 @@ const AboutSection: React.FC = () => {
                 <div className="max-w-4xl mx-auto mb-16">
                     <div className="bg-gray-50 p-8 rounded-2xl border-l-4 border-red-500">
                         <p className="text-xl md:text-2xl text-gray-800 leading-relaxed mb-6">
-                            Se sua empresa faz importação acima de <strong className="text-red-600">US$ 20 mil por ano</strong> e você escolheu sua trading baseado em "preço competitivo" ou "confiança"...
+                            Se sua empresa faz importação acima de <strong className="text-red-600">US$ 20 mil por ano</strong> e você escolheu sua trading baseado em &ldquo;preço competitivo&rdquo; ou &ldquo;confiança&rdquo;...
                         </p>
                         <p className="text-xl md:text-2xl text-gray-800 leading-relaxed font-semibold">
                             <span className="text-red-600">Você provavelmente está desperdiçando entre R$ 100k a R$ 500k+ por ano.</span>
@@ -184,7 +184,7 @@ const AboutSection: React.FC = () => {
                             <div className="grid md:grid-cols-3 gap-8 items-center">
                                 <div className="text-center">
                                     <div className="bg-green-100 p-4 rounded-xl mb-3">
-                                        <p className="text-green-800 font-bold text-lg">Você "economiza"</p>
+                                        <p className="text-green-800 font-bold text-lg">Você &ldquo;economiza&rdquo;</p>
                                         <p className="text-green-600 text-3xl font-bold">R$ 5k</p>
                                         <p className="text-green-700 text-sm">na margem da trading</p>
                                     </div>

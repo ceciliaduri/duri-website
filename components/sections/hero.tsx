@@ -1,6 +1,4 @@
 import React from 'react';
-import { TrendingDown } from 'lucide-react';
-
 const HeroSection: React.FC = () => {
     return (
         <div className="relative w-full min-h-screen h-[100svh] overflow-hidden">

@@ -8,9 +8,7 @@ import {
   AlertTriangle,
   Target,
   TrendingUp,
-  Shield,
   Users,
-  FileCheck,
   Globe,
   Award,
   Settings
@@ -299,7 +297,7 @@ const ServicesSection: React.FC = () => {
                         
                         <div className="text-center">
                             <TrendingUp className="w-12 h-12 text-purple-600 mx-auto mb-3" />
-                            <p className="font-semibold text-gray-900">Economias que vão muito além do "preço da trading"</p>
+                            <p className="font-semibold text-gray-900">Economias que vão muito além do &ldquo;preço da trading&rdquo;</p>
                         </div>
                     </div>
 

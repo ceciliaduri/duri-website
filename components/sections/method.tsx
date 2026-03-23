@@ -8,7 +8,6 @@ import {
   BarChart3,
   Target,
   Shield,
-  DollarSign,
   Award
 } from 'lucide-react';
 import { Card, CardContent } from '../ui/card';
@@ -80,7 +79,7 @@ const MethodSection: React.FC = () => {
                                         <X className="w-4 h-4 text-white" />
                                     </div>
                                     <div>
-                                        <p className="font-semibold text-red-800">Solução padronizada "tamanho único"</p>
+                                        <p className="font-semibold text-red-800">Solução padronizada &ldquo;tamanho único&rdquo;</p>
                                         <p className="text-red-600 text-sm">Mesma abordagem para todas empresas</p>
                                     </div>
                                 </div>
