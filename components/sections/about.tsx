@@ -27,7 +27,7 @@ const AboutSection: React.FC = () => {
                         </div>
                     </div>
                     
-                    <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
+                    <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 leading-tight">
                         A Verdade Sobre Custos de Importação Que{' '}
                         <span className="text-red-600">Trading Companies Escondem</span>
                     </h2>
@@ -63,7 +63,7 @@ const AboutSection: React.FC = () => {
 
                 {/* Título dos Custos Ocultos */}
                 <div className="text-center mb-12">
-                    <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                    <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">
                         Os custos ocultos que elas <span className="text-red-600">NÃO analisam:</span>
                     </h3>
                 </div>
@@ -148,7 +148,7 @@ const AboutSection: React.FC = () => {
                     </Card>
 
                     {/* Custo 5 */}
-                    <Card className="group hover:shadow-xl transition-all duration-300 border-l-4 border-blue-500 md:col-span-2 lg:col-span-1">
+                    <Card className="group hover:shadow-xl transition-all duration-300 border-l-4 border-blue-500">
                         <CardContent className="p-6">
                             <div className="flex items-start gap-4">
                                 <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center group-hover:bg-blue-200 transition-colors duration-300">

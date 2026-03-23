@@ -115,17 +115,17 @@ const Navbar: React.FC = () => {
         isScrolled 
           ? 'bg-white/95 backdrop-blur-md shadow-xl border-b border-gray-100' 
           : 'bg-white/90 backdrop-blur-sm shadow-lg'
-        } mx-6 mt-6 mb-4 rounded-2xl`}>
+        } mx-3 md:mx-6 mt-3 md:mt-6 mb-4 rounded-2xl`}>
         
-        <div className="flex items-center justify-between px-8 py-4">
+        <div className="flex items-center justify-between px-4 md:px-8 py-3 md:py-4">
           {/* Logo */}
           <Link href="/" className="flex-shrink-0 group">
             <Image 
               src="/duriLogo.png" 
               alt="Duri Logo" 
-              width={140} 
+              width={140}
               height={50}
-              className="transition-all duration-300 group-hover:scale-105"
+              className="transition-all duration-300 group-hover:scale-105 w-[100px] md:w-[140px] h-auto"
               priority
             />
           </Link>
@@ -201,7 +201,7 @@ const Navbar: React.FC = () => {
           {/* Mobile Menu Button */}
           <button 
             onClick={toggleMobileMenu}
-            className="lg:hidden flex items-center justify-center w-10 h-10 rounded-full bg-gray-100 hover:bg-gray-200 transition-colors duration-300"
+            className="lg:hidden flex items-center justify-center w-11 h-11 rounded-full bg-gray-100 hover:bg-gray-200 transition-colors duration-300"
             aria-label="Toggle mobile menu"
           >
             <div className={`w-6 h-0.5 bg-gray-600 relative transition-all duration-300 ${isMobileMenuOpen ? 'rotate-45' : ''}`}>

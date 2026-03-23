@@ -71,13 +71,13 @@ const Contact: React.FC = () => {
 
 
     return (
-        <div className='flex flex-col items-center mt-16 gap-16 p-16'>
+        <div className='flex flex-col items-center mt-8 md:mt-16 gap-6 md:gap-10 lg:gap-16 p-4 md:p-8 lg:p-16'>
             <div className='flex flex-col gap-16'>
-                <h1 className='text-3xl text-center font-bold'>
-                    Somos seu Parceiro para Soluções <br /><span className='text-duri-light'>Estratégicas e Integradas</span> em <br />Comércio Exterior
+                <h1 className='text-2xl md:text-3xl text-center font-bold'>
+                    Somos seu Parceiro para Soluções <br className="hidden md:block" /><span className='text-duri-light'>Estratégicas e Integradas</span> em <br className="hidden md:block" />Comércio Exterior
                 </h1>
-                <div className='flex items-center gap-16 w-full'>
-                    <Card className='p-4 w-1/2 pt-8'>
+                <div className='flex flex-col md:flex-row items-center gap-8 md:gap-16 w-full'>
+                    <Card className='p-4 w-full lg:w-1/2 pt-8'>
                         <CardContent>
                             <form className="flex flex-col gap-4" onSubmit={handleSubmit(onSubmit)}>
                                 <h3 className='text-duri-medium text-xl'>
@@ -179,7 +179,7 @@ const Contact: React.FC = () => {
                                     </Label>
                                 </div>
                                 <button
-                                    className="bg-duri-light rounded-full p-1 px-8 text-white hover:bg-duri-dark disabled:bg-gray-300"
+                                    className="bg-duri-light rounded-full py-2.5 px-8 text-white hover:bg-duri-dark disabled:bg-gray-300"
                                     type="submit"
                                     disabled={!termsAccepted}
                                 >
@@ -193,11 +193,12 @@ const Contact: React.FC = () => {
                         width={500}
                         height={500}
                         alt="Imagem de um formulário"
+                        className="hidden md:block w-full md:w-auto max-w-[500px]"
                     />
                 </div>
             </div>
             <div className='flex flex-col items-center'>
-                <div className="relative w-screen h-[40vh] overflow-x-hidden">
+                <div className="relative w-full h-[40vh] overflow-hidden">
                     <Image
                         src="/contacts/heroImage.png"
                         alt="Imagem de um porto"
@@ -206,12 +207,12 @@ const Contact: React.FC = () => {
                         priority
                     />
                     <div className="absolute inset-0 bg-[#5C0508A6] bg-opacity-65"></div>
-                    <div className="absolute inset-0 flex flex-col items-center justify-center text-white text-center px-4 w02">
+                    <div className="absolute inset-0 flex flex-col items-center justify-center text-white text-center px-4">
                         <h1 className="text-4xl font-bold">Contatos</h1>
                     </div>
                 </div>
             </div>
-            <div className='flex justify-around w-full'>
+            <div className='flex flex-col md:flex-row justify-around w-full gap-6 md:gap-8'>
                 <Card className='shadow-md p-4'>
                     <CardContent className='flex flex-col text-center items-center'>
                         <div className="w-16 h-16 rounded-full bg-red-50 flex items-center justify-center mb-4">

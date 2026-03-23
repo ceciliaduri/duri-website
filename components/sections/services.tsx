@@ -33,7 +33,7 @@ const ServicesSection: React.FC = () => {
                         </div>
                     </div>
                     
-                    <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
+                    <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 leading-tight">
                         💡 Os 7 Tipos de Economia Que{' '}
                         <span className="text-blue-600">90% Das Trading Companies</span>{' '}
                         Ignoram
@@ -46,10 +46,10 @@ const ServicesSection: React.FC = () => {
                 </div>
 
                 {/* Grid Principal das 3 Categorias */}
-                <div className="grid md:grid-cols-3 gap-8 mb-16">
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
                     
                     {/* Categoria 1: Economia Tributária */}
-                    <Card className="group hover:shadow-2xl transition-all duration-500 transform hover:scale-105 border-t-4 border-blue-500">
+                    <Card className="group hover:shadow-2xl transition-all duration-500 transform md:hover:scale-105 border-t-4 border-blue-500">
                         <CardContent className="p-8 text-center h-full">
                             <div className="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-blue-200 transition-colors duration-300">
                                 <BarChart3 className="w-10 h-10 text-blue-600" />
@@ -94,7 +94,7 @@ const ServicesSection: React.FC = () => {
                     </Card>
 
                     {/* Categoria 2: Economia Operacional */}
-                    <Card className="group hover:shadow-2xl transition-all duration-500 transform hover:scale-105 border-t-4 border-orange-500">
+                    <Card className="group hover:shadow-2xl transition-all duration-500 transform md:hover:scale-105 border-t-4 border-orange-500">
                         <CardContent className="p-8 text-center h-full">
                             <div className="w-20 h-20 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-orange-200 transition-colors duration-300">
                                 <Zap className="w-10 h-10 text-orange-600" />
@@ -139,7 +139,7 @@ const ServicesSection: React.FC = () => {
                     </Card>
 
                     {/* Categoria 3: Economia Estratégica */}
-                    <Card className="group hover:shadow-2xl transition-all duration-500 transform hover:scale-105 border-t-4 border-purple-500">
+                    <Card className="group hover:shadow-2xl transition-all duration-500 transform md:hover:scale-105 border-t-4 border-purple-500">
                         <CardContent className="p-8 text-center h-full">
                             <div className="w-20 h-20 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-purple-200 transition-colors duration-300">
                                 <Rocket className="w-10 h-10 text-purple-600" />

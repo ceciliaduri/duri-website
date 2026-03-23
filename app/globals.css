@@ -66,3 +66,11 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* Desabilitar hover effects em dispositivos touch */
+@media (hover: none) and (pointer: coarse) {
+  .hover\:scale-105:hover,
+  .md\:hover\:scale-105:hover {
+    transform: none !important;
+  }
+}

@@ -25,7 +25,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${poppins.className} w-screen h-screen overflow-x-hidden`}>
+      <body className={`${poppins.className} w-full min-h-screen overflow-x-hidden`}>
         {children}
         <Toaster />
       </body>

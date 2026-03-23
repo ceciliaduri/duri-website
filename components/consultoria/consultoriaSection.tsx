@@ -4,25 +4,26 @@ import Link from 'next/link';
 
 const ConsultoriaSection: React.FC = () => {
     return (
-        <section className='flex flex-col py-16 px-40 gap-16'>
+        <section className='flex flex-col py-12 md:py-16 px-6 md:px-16 lg:px-40 gap-10 md:gap-16'>
             <div className='flex flex-col gap-16'>
-                <p className='text-xl text-[#252525B2] text-justify'>
+                <p className='text-xl text-[#252525B2] text-left md:text-justify'>
                     A legislação tributária é complexa, repleta de detalhamentos e com frequentes mudanças, mas somos uma organização <span className='font-bold'>especializada em legislação aduaneira e tributária</span>.
                 </p>
-                <p className='text-xl text-[#252525B2] text-justify'>
+                <p className='text-xl text-[#252525B2] text-left md:text-justify'>
                     Composta por uma equipe altamente capacitada para prestar serviços específicos que envolvem essas duas áreas, buscando sempre a<span className='font-bold text-duri-medium'> maior redução possível do custo tributário</span>. Além disso, as análises são formuladas levando em consideração tanto o processo de importação quanto a etapa seguinte de faturamento dos clientes.
                 </p>
             </div>
             <div className='flex flex-col gap-24'>
-                <div className='flex justify-between items-center gap-16'>
+                <div className='flex flex-col md:flex-row justify-between items-center gap-8 md:gap-16'>
                     <Image
                         src="/consultoria/consultoria1.png"
                         alt="Imagem de uma calculadora"
                         width={550}
                         height={700}
+                        className="w-full max-h-[300px] md:max-h-none md:w-auto max-w-[550px] object-cover rounded-lg"
                     />
-                    <div className='flex flex-col gap-4 text-justify w-2/3'>
-                        <h2 className='text-3xl text-duri-medium font-bold'>
+                    <div className='flex flex-col gap-4 text-left md:text-justify w-full md:w-2/3'>
+                        <h2 className='text-xl sm:text-2xl md:text-3xl text-duri-medium font-bold'>
                             Soluções e Planejamentos Tributários no Âmbito do Comércio Exterior
                         </h2>
                         <p className='text-xl text-[#252525B2]'>
@@ -30,9 +31,9 @@ const ConsultoriaSection: React.FC = () => {
                         </p>
                     </div>
                 </div>
-                <div className='flex justify-between items-center gap-16'>
-                    <div className='flex flex-col gap-4 text-justify w-2/3'>
-                        <h2 className='text-3xl text-duri-medium font-bold text-end'>
+                <div className='flex flex-col md:flex-row justify-between items-center gap-8 md:gap-16'>
+                    <div className='flex flex-col gap-4 text-left md:text-justify w-full md:w-2/3'>
+                        <h2 className='text-xl sm:text-2xl md:text-3xl text-duri-medium font-bold md:text-end'>
                             Restituição Tributária
                         </h2>
                         <p className='text-xl text-[#252525B2]'>
@@ -47,17 +48,19 @@ const ConsultoriaSection: React.FC = () => {
                         alt="Imagem de uma calculadora"
                         width={550}
                         height={700}
+                        className="w-full max-h-[300px] md:max-h-none md:w-auto max-w-[550px] object-cover rounded-lg"
                     />
                 </div>
-                <div className='flex justify-between items-center gap-16'>
+                <div className='flex flex-col md:flex-row justify-between items-center gap-8 md:gap-16'>
                     <Image
                         src="/consultoria/consultoria3.png"
                         alt="Imagem de uma calculadora"
                         width={550}
                         height={700}
+                        className="w-full max-h-[300px] md:max-h-none md:w-auto max-w-[550px] object-cover rounded-lg"
                     />
-                    <div className='flex flex-col gap-4 text-justify w-2/3'>
-                        <h2 className='text-3xl text-duri-medium font-bold'>
+                    <div className='flex flex-col gap-4 text-left md:text-justify w-full md:w-2/3'>
+                        <h2 className='text-xl sm:text-2xl md:text-3xl text-duri-medium font-bold'>
                             Credenciamento e Consultoria Envolvendo Benefícios Fiscais
                         </h2>
                         <p className='text-xl text-[#252525B2]'>
@@ -70,8 +73,8 @@ const ConsultoriaSection: React.FC = () => {
                 </div>
             </div>
             <div className='flex flex-col items-center gap-8'>
-                <h1 className='text-4xl text-center font-bold'>
-                    Transforme a complexidade tributária <br />em <span className='text-duri-medium'>economia</span> real e operações <br /><span className='text-duri-medium'>mais eficientes</span>
+                <h1 className='text-2xl md:text-4xl text-center font-bold'>
+                    Transforme a complexidade tributária em <span className='text-duri-medium'>economia</span> real e operações <span className='text-duri-medium'>mais eficientes</span>
                 </h1>
                 <Link href={'/contato'}>
                     <button className="bg-duri-light rounded-full p-2 px-10 font-bold text-white hover:bg-duri-dark text-xl">

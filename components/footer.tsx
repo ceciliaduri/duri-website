@@ -4,24 +4,24 @@ import { MapPin, Phone } from 'lucide-react';
 
 const Footer: React.FC = () => {
   return (
-    <footer className='bg-white flex items-center p-8'>
+    <footer className='bg-white flex flex-col md:flex-row items-center p-6 md:p-8 gap-6'>
       {/* SOCIAIS */}
-      <div className='flex flex-col items-center gap-4 pr-8'>
-        <a href="https://wa.me/5581994242112?text=Ol%C3%A1!%20Cheguei%20atrav%C3%A9s%20do%20site." target='__blank'>
+      <div className='flex md:flex-col items-center gap-4 md:pr-8'>
+        <a href="https://wa.me/5581994242112?text=Ol%C3%A1!%20Cheguei%20atrav%C3%A9s%20do%20site." target='__blank' className="p-2.5">
           <Image src={'/social/whatsapp.svg'}
             width={26}
             height={26}
             alt='Logo Whatsapp'
           />
         </a>
-        <a href="https://www.instagram.com/duritrading/" target='__blank'>
+        <a href="https://www.instagram.com/duritrading/" target='__blank' className="p-2.5">
           <Image src={'/social/instagram.svg'}
             width={26}
             height={26}
             alt='Logo Instagram'
           />
         </a>
-        <a href="https://www.linkedin.com/company/duritrading/" target='__blank'>
+        <a href="https://www.linkedin.com/company/duritrading/" target='__blank' className="p-2.5">
           <Image src={'/social/linkedin.svg'}
             width={26}
             height={26}
@@ -31,9 +31,9 @@ const Footer: React.FC = () => {
       </div>
 
       {/* CONTENT */}
-      <div className="flex justify-around w-full items-center">
+      <div className="flex flex-col md:flex-row justify-around w-full items-center gap-8">
         {/* Matriz */}
-        <div className="flex flex-col text-left self-start">
+        <div className="flex flex-col text-center md:text-left md:self-start">
           <p className="font-semibold pb-2">Matriz - Recife</p>
           <div className="flex flex-col gap-4">
             <p className="flex text-wrap gap-1 max-w-60">
@@ -67,7 +67,7 @@ const Footer: React.FC = () => {
         </div>
 
         {/* Filial */}
-        <div className="flex flex-col text-left self-start">
+        <div className="flex flex-col text-center md:text-left md:self-start">
           <p className="font-semibold pb-2">Filial - João Pessoa</p>
           <div className="flex flex-col gap-4">
             <p className="flex text-wrap gap-1 max-w-60">

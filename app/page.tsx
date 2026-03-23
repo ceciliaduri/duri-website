@@ -7,7 +7,7 @@ import MethodSection from "@/components/sections/method";
 
 export default function Home() {
   return (
-    <div className="bg-[#F9F9F9] min-h-screen w-screen">
+    <div className="bg-[#F9F9F9] min-h-screen w-full overflow-x-hidden">
       <Navbar />
       <div className="bg-[#F9F9F9] flex flex-col">
         <section id="home"><HeroSection /></section>

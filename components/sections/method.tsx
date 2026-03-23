@@ -30,7 +30,7 @@ const MethodSection: React.FC = () => {
                         </div>
                     </div>
                     
-                    <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
+                    <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 leading-tight">
                         ⚡ Trading Básica vs{' '}
                         <span className="text-blue-600">Consultoria Completa</span>{' '}
                         em Custos de Importação
@@ -184,7 +184,7 @@ const MethodSection: React.FC = () => {
                     </div>
 
                     {/* Timeline de Transformação */}
-                    <div className="grid md:grid-cols-3 gap-8 items-center max-w-5xl mx-auto">
+                    <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 items-center max-w-5xl mx-auto">
                         
                         {/* ANTES */}
                         <Card className="bg-red-50 border-2 border-red-200">
@@ -264,7 +264,7 @@ const MethodSection: React.FC = () => {
                         </p>
                     </div>
 
-                    <div className="grid md:grid-cols-4 gap-6">
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
                         <div className="text-center">
                             <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
                                 <BarChart3 className="w-8 h-8 text-blue-600" />
@@ -309,7 +309,7 @@ const MethodSection: React.FC = () => {
                         Solicitar Análise Completa Gratuita
                     </button>
                     
-                    <div className="flex items-center justify-center gap-8 text-sm text-gray-600 mt-4">
+                    <div className="flex flex-col md:flex-row items-center justify-center gap-3 md:gap-8 text-sm text-gray-600 mt-4">
                         <div className="flex items-center gap-2">
                             <CheckCircle className="w-4 h-4 text-green-500" />
                             <span>Diagnóstico 360° gratuito</span>
