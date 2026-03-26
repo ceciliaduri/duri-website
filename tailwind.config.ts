@@ -14,6 +14,10 @@ export default {
   			'duri-click': '#1E88E5',
   			'duri-dark': '#A9191E',
   			'duri-light': '#F42930',
+  			'duri-bg': '#F9F9F9',
+  			'duri-text': '#252525',
+  			'duri-text-muted': '#6B6B6B',
+  			'duri-border': '#777E90',
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
   			card: {

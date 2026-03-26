@@ -6,9 +6,9 @@ import Navbar from "@/components/navbar";
 const Page = () => {
     return (
         <div>
-            <div className="bg-[#F9F9F9] min-h-screen w-full overflow-x-hidden">
+            <div className="bg-duri-bg min-h-screen w-full overflow-x-hidden">
                 <Navbar />
-                <div className="bg-[#F9F9F9] flex flex-col">
+                <div className="bg-duri-bg flex flex-col">
                     <ConsultoriaHero />
                     <ConsultoriaSection />
                 </div>

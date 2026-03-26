@@ -34,7 +34,7 @@ const Supporters: React.FC = () => {
                 <h1 className='text-2xl md:text-4xl text-center font-bold'>
                     Transformamos <span className='text-duri-medium'>Desafios em Oportunidades</span> Através de Soluções de Comércio Exterior
                 </h1>
-                <Link href={'/contato'}>
+                <Link href="/#contato">
                     <button className="bg-duri-light rounded-full p-3 px-12 text-xl font-bold text-white hover:bg-duri-dark">
                         Conheça nosso Trabalho
                     </button>

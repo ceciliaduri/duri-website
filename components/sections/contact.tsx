@@ -88,7 +88,7 @@ const Contact: React.FC = () => {
                                     <Input
                                         id="name"
                                         {...register('name', { required: true })}
-                                        className='border-[#777E90]'
+                                        className='border-duri-border'
                                         required
                                     />
                                 </div>
@@ -97,7 +97,7 @@ const Contact: React.FC = () => {
                                     <Input
                                         id="company"
                                         {...register('company')}
-                                        className='border-[#777E90]'
+                                        className='border-duri-border'
                                     />
                                 </div>
                                 <div>
@@ -111,7 +111,7 @@ const Contact: React.FC = () => {
                                                 id="phone"
                                                 value={value}
                                                 onChange={(e) => onChange(formatPhone(e.target.value))}
-                                                className="border-[#777E90]"
+                                                className="border-duri-border"
                                                 required
                                             />
                                         )}
@@ -122,7 +122,7 @@ const Contact: React.FC = () => {
                                     <Input
                                         id="email"
                                         {...register('email', { required: true })}
-                                        className='border-[#777E90]'
+                                        className='border-duri-border'
                                         required
                                     />
                                 </div>
@@ -137,7 +137,7 @@ const Contact: React.FC = () => {
                                                 onValueChange={field.onChange}
                                                 value={field.value}
                                             >
-                                                <SelectTrigger className="w-full border-[#777E90]">
+                                                <SelectTrigger className="w-full border-duri-border">
                                                     <SelectValue placeholder="Selecione um serviço" />
                                                 </SelectTrigger>
                                                 <SelectContent>
@@ -173,7 +173,7 @@ const Contact: React.FC = () => {
                                         {...register('terms')}
                                         onCheckedChange={(checked) => setValue('terms', !!checked)}
                                     />
-                                    <Label htmlFor="terms" className='text-sm text-[#777E90]'>
+                                    <Label htmlFor="terms" className='text-sm text-duri-text-muted'>
                                         Ao clicar nesse botão você concorda que a Duri Trading faça uso dessas
                                         informações colocadas acima, em concordancia com os termos gerais da LGPD.
                                     </Label>
@@ -206,7 +206,7 @@ const Contact: React.FC = () => {
                         className="object-cover w-full h-full max-w-none"
                         priority
                     />
-                    <div className="absolute inset-0 bg-[#5C0508A6] bg-opacity-65"></div>
+                    <div className="absolute inset-0 bg-duri-dark/65"></div>
                     <div className="absolute inset-0 flex flex-col items-center justify-center text-white text-center px-4">
                         <h1 className="text-4xl font-bold">Contatos</h1>
                     </div>
