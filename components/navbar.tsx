@@ -57,7 +57,6 @@ const Navbar: React.FC = () => {
     };
   }, [isMobileMenuOpen]);
 
-  const isPathActive = (path: string) => pathname === path;
 
   const navLinks = [
     { href: '/#quem-somos', label: 'A Duri', section: 'quem-somos' },
