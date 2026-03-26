@@ -1,6 +1,6 @@
 import Footer from "@/components/footer";
 import Navbar from "@/components/navbar";
-import BenefitsSection from "@/components/sections/benefitsSection";
+import BenefitsHomeSection from "@/components/sections/benefits";
 
 const Page = () => {
     return (
@@ -8,7 +8,7 @@ const Page = () => {
             <div className="bg-duri-bg min-h-screen w-full overflow-x-hidden">
                 <Navbar />
                 <div className="bg-duri-bg flex flex-col">
-                    <BenefitsSection />
+                    <BenefitsHomeSection />
                 </div>
                 <Footer />
             </div>
