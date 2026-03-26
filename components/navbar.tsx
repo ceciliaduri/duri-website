@@ -116,29 +116,16 @@ const Navbar: React.FC = () => {
           <div className="hidden lg:flex items-center gap-8">
             {navLinks.map((link) => (
               <div key={link.href}>
-                {link.external ? (
-                  <Link
-                    href={link.href}
-                    className={`text-sm font-medium transition-colors duration-300 ${
-                      isScrolled
-                        ? isPathActive(link.href) ? 'text-duri-light' : 'text-gray-600 hover:text-gray-900'
-                        : 'text-white/70 hover:text-white'
-                    }`}
-                  >
-                    {link.label}
-                  </Link>
-                ) : (
-                  <button
-                    onClick={(e) => handleSmoothScroll(e, link.section!)}
-                    className={`text-sm font-medium transition-colors duration-300 ${
-                      isScrolled
-                        ? activeSection === link.section ? 'text-duri-light' : 'text-gray-600 hover:text-gray-900'
-                        : activeSection === link.section ? 'text-white' : 'text-white/70 hover:text-white'
-                    }`}
-                  >
-                    {link.label}
-                  </button>
-                )}
+                <button
+                  onClick={(e) => handleSmoothScroll(e, link.section)}
+                  className={`text-sm font-medium transition-colors duration-300 ${
+                    isScrolled
+                      ? activeSection === link.section ? 'text-duri-light' : 'text-gray-600 hover:text-gray-900'
+                      : activeSection === link.section ? 'text-white' : 'text-white/70 hover:text-white'
+                  }`}
+                >
+                  {link.label}
+                </button>
               </div>
             ))}
           </div>
@@ -206,22 +193,12 @@ const Navbar: React.FC = () => {
                 }}
                 className="transition-all duration-300"
               >
-                {link.external ? (
-                  <Link
-                    href={link.href}
-                    onClick={() => setIsMobileMenuOpen(false)}
-                    className="block px-4 py-3 text-gray-700 hover:text-duri-light rounded-lg transition-colors"
-                  >
-                    {link.label}
-                  </Link>
-                ) : (
-                  <button
-                    onClick={(e) => handleSmoothScroll(e, link.section!)}
-                    className="block w-full text-left px-4 py-3 text-gray-700 hover:text-duri-light rounded-lg transition-colors"
-                  >
-                    {link.label}
-                  </button>
-                )}
+                <button
+                  onClick={(e) => handleSmoothScroll(e, link.section)}
+                  className="block w-full text-left px-4 py-3 text-gray-700 hover:text-duri-light rounded-lg transition-colors"
+                >
+                  {link.label}
+                </button>
               </div>
             ))}
 
